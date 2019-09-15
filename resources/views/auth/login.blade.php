@@ -64,6 +64,21 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-12">
+                                <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    Login with Facebook
+                                </a>
+                                <a href="{{ url('/auth/github') }}" class="btn btn-facebook">
+                                    <i class="fab fa-github"></i>
+                                    Login with Github
+                                </a>
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>
