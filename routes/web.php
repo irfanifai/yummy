@@ -34,3 +34,9 @@ Route::prefix('admin')->group(function () {
 
 Route::get('auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
+
+// User Web
+Route::get('users/trash', 'UsersController@trash')->name('users.trash');
+Route::get('users/{id}/restore', 'UsersController@restore')->name('users.restore');
+Route::delete('users/{id}/delete-permanent', 'UsersController@deletePermanent')->name('users.delete-permanent');
+Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);

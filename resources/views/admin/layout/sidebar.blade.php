@@ -35,7 +35,7 @@
 
     <!-- Nav Item User Website-->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('users.index') }}">
         <i class="fas fa-fw fa-user-circle"></i>
         <span>User Web</span></a>
     </li>
