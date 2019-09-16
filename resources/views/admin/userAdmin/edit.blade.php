@@ -1,11 +1,11 @@
 @extends('admin.layout.app')
 
-@section("title") User @endsection
+@section("title") User Admin @endsection
 
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form enctype="multipart/form-data" method="POST" action="{{ route('users.update', ['id'=>$user->id])}}">
+        <form enctype="multipart/form-data" method="POST" action="{{ route('useradmin.update', ['id'=>$user->id])}}">
             @method('patch')
             @csrf
 

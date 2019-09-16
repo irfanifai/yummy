@@ -40,3 +40,9 @@ Route::get('users/trash', 'UsersController@trash')->name('users.trash');
 Route::get('users/{id}/restore', 'UsersController@restore')->name('users.restore');
 Route::delete('users/{id}/delete-permanent', 'UsersController@deletePermanent')->name('users.delete-permanent');
 Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
+
+// User Admin
+Route::get('useradmin/trash', 'userAdminsController@trash')->name('useradmin.trash');
+Route::get('useradmin/{id}/restore', 'userAdminsController@restore')->name('useradmin.restore');
+Route::delete('useradmin/{id}/delete-permanent', 'userAdminsController@deletePermanent')->name('useradmin.delete-permanent');
+Route::resource('useradmin', 'UserAdminsController');

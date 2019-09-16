@@ -27,8 +27,8 @@
         </a>
         <div id="userAdmin" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Daftar User Admin</a>
-            <a class="collapse-item" href="#">Buat User Admin Baru</a>
+            <a class="collapse-item" href="{{ route('useradmin.index') }}">Daftar User Admin</a>
+            <a class="collapse-item" href="{{ route('useradmin.create') }}">Buat User Admin Baru</a>
         </div>
         </div>
     </li>
