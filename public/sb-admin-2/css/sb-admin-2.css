@@ -11640,7 +11640,7 @@ a:focus {
   }
 }
 
-.bg-login-image {
+/* .bg-login-image {
   background: url('../img/food.jpg');
   background-position: center;
   background-size: cover;
@@ -11656,7 +11656,7 @@ a:focus {
   background: url('../img/food.jpg');
   background-position: center;
   background-size: cover;
-}
+} */
 
 form.user .custom-checkbox.small label {
   line-height: 1.5rem;
