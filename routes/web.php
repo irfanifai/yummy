@@ -46,3 +46,9 @@ Route::get('useradmin/trash', 'userAdminsController@trash')->name('useradmin.tra
 Route::get('useradmin/{id}/restore', 'userAdminsController@restore')->name('useradmin.restore');
 Route::delete('useradmin/{id}/delete-permanent', 'userAdminsController@deletePermanent')->name('useradmin.delete-permanent');
 Route::resource('useradmin', 'UserAdminsController');
+
+// kategori
+Route::get('kategori/trash', 'CategoriesController@trash')->name('kategori.trash');
+Route::get('kategori/{id}/restore', 'CategoriesController@restore')->name('kategori.restore');
+Route::delete('kategori/{id}/delete-permanent', 'CategoriesController@deletePermanent')->name('kategori.delete-permanent');
+Route::resource('kategori', 'CategoriesController', ['except' => ['show']]);

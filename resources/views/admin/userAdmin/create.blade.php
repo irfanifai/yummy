@@ -1,9 +1,13 @@
 @extends('admin.layout.app')
 
-@section("title") Buat User Admin @endsection
+@section("title") User Admin @endsection
 
 @section('content')
-<div class="card">
+<div class="card shadow mb-2">
+    <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Buat User Admin</h6h>
+    </div>
+
     <div class="card-body">
         <form enctype="multipart/form-data" method="POST" action="{{ route('useradmin.store') }}">
             @csrf
