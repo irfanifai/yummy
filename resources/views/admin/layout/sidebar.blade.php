@@ -48,8 +48,8 @@
         </a>
         <div id="article" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Semua Artikel</a>
-            <a class="collapse-item" href="#">Buat Artikel</a>
+            <a class="collapse-item" href="{{ route('artikel.index') }}">Semua Artikel</a>
+            <a class="collapse-item" href="{{ route('artikel.create') }}">Buat Artikel</a>
             <a class="collapse-item" href="{{ route('kategori.index') }}">Kategori Artikel</a>
         </div>
         </div>

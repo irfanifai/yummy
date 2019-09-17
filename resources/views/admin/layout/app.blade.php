@@ -87,6 +87,8 @@
     <script src="{{ asset('sb-admin-2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
+    <script src="https://cdn.tiny.cloud/1/swruegvyym0jmtwzpuh3144t0po7q0ierwl8l4oa4s3h8rgq/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
     <script src="{{ asset('sb-admin-2/js/sb-admin-2.min.js') }}"></script>
 
 </body>

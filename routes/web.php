@@ -52,3 +52,9 @@ Route::get('kategori/trash', 'CategoriesController@trash')->name('kategori.trash
 Route::get('kategori/{id}/restore', 'CategoriesController@restore')->name('kategori.restore');
 Route::delete('kategori/{id}/delete-permanent', 'CategoriesController@deletePermanent')->name('kategori.delete-permanent');
 Route::resource('kategori', 'CategoriesController', ['except' => ['show']]);
+
+// kategori
+Route::get('artikel/trash', 'PostsController@trash')->name('artikel.trash');
+Route::get('artikel/{id}/restore', 'PostsController@restore')->name('artikel.restore');
+Route::delete('artikel/{id}/delete-permanent', 'PostsController@deletePermanent')->name('artikel.delete-permanent');
+Route::resource('artikel', 'PostsController');

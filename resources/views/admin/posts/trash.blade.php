@@ -1,0 +1,95 @@
+@extends('admin.layout.app')
+
+@section("title") Artikel @endsection
+
+@section('content')
+<div class="card shadow mb-2">
+    <div class="card-header py-3">
+        <h5 class="m-0 font-weight-bold text-primary">Trash Artikel</h6h>
+    </div>
+
+        <div class="card-body">
+
+            <div class="col-4 float-right mb-4">
+                <form action="{{ route('artikel.index') }}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan judul artikel">
+                        <div class="input-group-append">
+                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class=" col-md-8 float-left mb-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="{{route('artikel.index')}}" class="btn btn-primary">Semua Artikel</a>
+                    </li>
+                </ul>
+            </div>
+
+            @if (session('status'))
+            <div class="col-6 alert alert-info alert-dismissible fade show mt-5">
+                {{ session('status') }}
+                <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+                </button>
+            </div>
+            @endif
+
+            <div class="table-responsive mt-2 text-center">
+                <table class="table table-striped table-md">
+                <tr>
+                    <th>#</th>
+                    <th>Judul Artikel</th>
+                    <th>Penulis</th>
+                    <th>Kategori</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                @foreach($posts as $post)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{!! substr($post->title, 0, 20) !!}...</td>
+                        <td><img src="{{ asset($post->user->avatar) }}" alt="Foto Profile" width="30" class="rounded-circle mr-1"> {{ $post->user->name }}</td>
+                        <td>{{ $post->categorie->name }}</td>
+                        <td>
+                            @if($post->status == "PUBLISH")
+                            <span class="badge badge-success">
+                                {{ $post->status }}
+                            </span>
+                            @else
+                            <span class="badge badge-danger">
+                                {{ $post->status }}
+                            </span>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('artikel.restore', ['id' => $post->id]) }}" class="btn btn-success">Restore</a>
+
+                            <form onsubmit="return confirm('Hapus artikel secara permanen?')" class="d-inline" action="{{route('artikel.delete-permanent', ['id' => $post->id ])}}" method="POST">
+                                @method('delete')
+                                @csrf
+
+                                <button type="submit" value="Delete" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+
+                <tfoot>
+                    <tr>
+                        <td colspan=10>
+                            {{$posts->appends(Request::all())->links()}}
+                        </td>
+                    </tr>
+                </tfoot>
+
+                </table>
+            </div>
+        </div>
+</div>
+@endsection

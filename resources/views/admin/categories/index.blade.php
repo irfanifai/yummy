@@ -12,7 +12,7 @@
         <div class="card-body">
 
         <div class="col-3 float-right mb-4">
-            <form action="#">
+            <form action="{{ route('kategori.index') }}">
                 <div class="input-group">
                     <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan nama">
                     <div class="input-group-append">
@@ -22,7 +22,7 @@
             </form>
         </div>
 
-        <div class=" col-md-8 float-left mb-3">
+        <div class="col-md-8 float-left mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a href="{{route('kategori.create')}}" class="btn btn-primary">Buat Kategori Baru</a>

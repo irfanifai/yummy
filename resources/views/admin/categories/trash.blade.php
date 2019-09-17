@@ -21,7 +21,7 @@
             </form>
         </div>
 
-        <div class=" col-md-8 float-left mb-3">
+        <div class="col-md-8 float-left mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a href="{{route('kategori.index')}}" class="btn btn-primary">Semua Kategori</a>
