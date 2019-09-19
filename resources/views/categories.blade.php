@@ -55,7 +55,7 @@
                         {!! $postcategorie->links('frontend.include._pagination') !!}
                     </nav>
                     <div class="page-status">
-                        <p>Page {{$postcategorie->currentPage() }} dari {{ $postcategorie->total() }} Kategori</p>
+                        <p>Halaman {{$postcategorie->currentPage() }} dari {{ $postcategorie->total() }} Kategori</p>
                     </div>
                 </div>
             </div>

@@ -82,7 +82,7 @@
                         {!! $posts->links('frontend.include._pagination') !!}
                     </nav>
                     <div class="page-status">
-                        <p>Page {{$posts->currentPage() }} dari {{ $posts->total() }} artikel</p>
+                        <p>Halaman {{$posts->currentPage() }} dari {{ $posts->total() }} artikel</p>
                     </div>
                 </div>
             </div>

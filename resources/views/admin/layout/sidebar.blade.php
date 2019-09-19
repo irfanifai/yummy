@@ -64,14 +64,14 @@
 
     <!-- Nav Tentang Kami-->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.tentangkami.index') }}">
         <i class="fas fa-fw fa-info"></i>
         <span>Tentang Kami</span></a>
     </li>
 
     <!-- Nav Pesan-->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="#">
         <i class="fas fa-fw fa-envelope"></i>
         <span>Pesan</span></a>
     </li>
