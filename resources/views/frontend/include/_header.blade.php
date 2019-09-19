@@ -21,8 +21,8 @@
                         <li class="{{ Request::is('blog') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kategori</a>
+                        <li class="{{ Request::is('categorie') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('/categorie') }}">Kategori</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pasta</a>

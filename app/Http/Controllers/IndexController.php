@@ -76,4 +76,22 @@ class IndexController extends Controller
         $relatedpost = Post::where('status', 'PUBLISH')->inRandomOrder()->limit(9)->get();
         return view('single', compact('setting',  'newpost', 'post', 'relatedpost', 'photos'));
     }
+
+    public function categories()
+    {
+        $client = new Client();
+
+        $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
+
+        $result = json_decode($endpoint->getBody()->getContents(), true);
+
+        $photos = [];
+        foreach ($result['data'] as $photo) {
+            $photos[] = $photo['images']['thumbnail']['url'];
+        }
+
+        $setting = $this->setting();
+        $postcategorie = Categorie::paginate(9);
+        return view('categories', compact('postcategorie', 'setting', 'photos'));
+    }
 }

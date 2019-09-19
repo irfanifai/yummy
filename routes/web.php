@@ -19,6 +19,9 @@ Route::get('/blog', 'IndexController@blog')->name('blog');
 Route::get('/blog/{slug}', 'IndexController@single');
 Route::post('/blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
 
+// Kategori
+Route::get('/categorie', 'IndexController@categories')->name('categorie');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
