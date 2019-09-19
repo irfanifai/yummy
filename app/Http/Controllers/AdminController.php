@@ -23,6 +23,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $posts = \App\Post::where('status', 'PUBLISH')->paginate(8);
+        $admin = \App\Admin::paginate(8);
+
+        return view('admin.home', compact('posts', 'admin'));
     }
 }
