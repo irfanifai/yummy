@@ -4,7 +4,7 @@
             <div class="footer-content">
                 <!-- Logo Area Start -->
                 <div class="footer-logo-area text-center">
-                    <a href="index.html" class="yummy-logo">Yummy Blog</a>
+                    <a href="{{ url('/') }}" class="yummy-logo">{{ $setting->title }}</a>
                 </div>
                 <!-- Menu Area Start -->
                 <nav class="navbar navbar-expand-lg">

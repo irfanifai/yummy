@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Yummy Blog - @yield("title")</title>
+    <title>Yummy - @yield("title")</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('yummy/img/core-img/favicon.ico') }}">
@@ -42,29 +42,15 @@
     </div>
     <!-- ****** Top Header Area End ****** -->
 
-    <!-- ****** Header Area Start ****** -->
+     <!-- ****** Header Area Start ****** -->
     <header class="header_area">
         @include('frontend.include._header')
     </header>
     <!-- ****** Header Area End ****** -->
 
-    <!-- ****** Welcome Post Area Start ****** -->
-    <section class="welcome-post-sliders owl-carousel">
-        @include('frontend.include._welcomepost')
-    </section>
-    <!-- ****** Welcome Area End ****** -->
-
-    <!-- ****** Categories Area Start ****** -->
-    <section class="categories_area clearfix" id="about">
-        @include('frontend.include._about')
-    </section>
-    <!-- ****** Categories Area End ****** -->
-
-    <!-- ****** Blog Area Start ****** -->
-    <section class="blog_area section_padding_0_80">
-        @include('frontend.include._blogarea')
-    </section>
-    <!-- ****** Blog Area End ****** -->
+    <!--blog-->
+        @yield("content")
+    <!--/blog-->
 
     <!-- ****** Instagram Area Start ****** -->
     <div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">
@@ -95,4 +81,9 @@
     <script src="{{ asset('yummy/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{ asset('yummy/js/active.js') }}"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d82beb954fe42bd"></script>
+
+
+
 </body>

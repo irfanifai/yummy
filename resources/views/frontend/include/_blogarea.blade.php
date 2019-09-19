@@ -9,7 +9,9 @@
                     <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="{{ asset($post->featured) }}" alt="">
+                            <a href="{{ url('/blog/' . $post->slug) }}">
+                                <img src="{{ asset($post->featured) }}" alt="">
+                            </a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -31,10 +33,6 @@
                                     <div class="post-comments">
                                         <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                     </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
                                 </div>
                             </div>
                             <a href="{{ url('/blog/' . $post->slug) }}">
@@ -53,7 +51,9 @@
                     <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="{{ asset($post->featured) }}" alt="">
+                            <a href="{{ url('/blog/' . $post->slug) }}">
+                                <img src="{{ asset($post->featured) }}" alt="">
+                            </a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -74,10 +74,6 @@
                                     <!-- Post Comments -->
                                     <div class="post-comments">
                                         <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +93,9 @@
                     <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="{{ asset($post->featured) }}" alt="">
+                            <a href="{{ url('/blog/' . $post->slug) }}">
+                                <img src="{{ asset($post->featured) }}" alt="">
+                            </a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -118,10 +116,6 @@
                                     <!-- Post Comments -->
                                     <div class="post-comments">
                                         <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -164,12 +158,10 @@
                         <h6>Subscribe &amp; Follow</h6>
                     </div>
                     <div class="subscribe-link">
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+                        <a href="{{ $setting->link_facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="{{ $setting->link_twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="{{ $setting->link_instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="{{ $setting->link_youtube }}"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
 

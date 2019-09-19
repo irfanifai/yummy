@@ -2,7 +2,9 @@
 @foreach ($posts as $post)
 <div class="welcome-single-slide">
     <!-- Post Thumb -->
-    <img src="{{ asset($post->featured) }}" alt="" height="400" style="background-size: cover;">
+    <a href="{{ url('/blog/' . $post->slug) }}">
+        <img src="{{ asset($post->featured) }}" alt="" height="330" style="background-size: cover;">
+    </a>
     <!-- Overlay Text -->
     <div class="project_title">
         <div class="post-date-commnents d-flex">

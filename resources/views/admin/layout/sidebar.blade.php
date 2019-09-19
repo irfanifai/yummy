@@ -78,9 +78,9 @@
 
     <!-- Nav Pesan-->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('settings.index') }}">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Pesan</span></a>
+        <span>Pengaturan Footer</span></a>
     </li>
 
     <!-- Divider -->

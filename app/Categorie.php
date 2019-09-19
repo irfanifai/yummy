@@ -12,4 +12,9 @@ class Categorie extends Model
     protected $fillable = [
         'name', 'slug', 'image'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

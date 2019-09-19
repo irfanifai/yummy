@@ -3,7 +3,7 @@
         <!-- Logo Area Start -->
         <div class="col-12">
             <div class="logo_area text-center">
-                <a href="{{ url('/') }}" class="yummy-logo">Yummy</a>
+                <a href="{{ url('/') }}" class="yummy-logo">{{ $setting->title }}</a>
             </div>
         </div>
     </div>
@@ -15,11 +15,11 @@
                 <!-- Menu Area Start -->
                 <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                     <ul class="navbar-nav" id="yummy-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <li class="{{ Request::is('/') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
+                        <li class="{{ Request::is('blog') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kategori</a>
@@ -35,6 +35,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pizza</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Sing in</a>
                         </li>
                     </ul>
                 </div>

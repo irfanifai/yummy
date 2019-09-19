@@ -14,6 +14,11 @@
 // Frontend/Root
 Route::get('/', 'IndexController@index');
 
+// Blog
+Route::get('/blog', 'IndexController@blog')->name('blog');
+Route::get('/blog/{slug}', 'IndexController@single');
+Route::post('/blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -57,3 +62,6 @@ Route::get('artikel/trash', 'PostsController@trash')->name('artikel.trash');
 Route::get('artikel/{id}/restore', 'PostsController@restore')->name('artikel.restore');
 Route::delete('artikel/{id}/delete-permanent', 'PostsController@deletePermanent')->name('artikel.delete-permanent');
 Route::resource('artikel', 'PostsController');
+
+Route::get('settings', 'SettingsController@index')->name('settings.index');
+Route::post('settings', 'SettingsController@store')->name('settings.store');
