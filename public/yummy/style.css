@@ -1169,7 +1169,7 @@ li {
 }
 
 .contact-btn {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 160px;
     height: 40px;
     font-size: 12px;
@@ -1188,6 +1188,23 @@ li {
 .contact-form-sidebar {
     background-size: cover;
     background-position: center center;
+}
+
+.contact-reset-btn {
+    margin-top: 20px;
+    width: 160px;
+    height: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    background-color: #fc3f3f;
+    border-radius: 30px;
+}
+
+.contact-reset-btn:hover {
+    color: #fff;
+    background-color: #b81d1d;
 }
 
 /* --------------------

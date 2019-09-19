@@ -18,8 +18,8 @@
                             <li class="{{ Request::is('tentangkami') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/tentangkami') }}">Tentang Kami</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Kontak</a>
+                            <li class="{{ Request::is('kontakkami') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('/kontakkami') }}">Kontak</a>
                             </li>
                         </ul>
                     </div>

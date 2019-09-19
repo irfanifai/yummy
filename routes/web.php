@@ -25,6 +25,10 @@ Route::get('/categorie', 'IndexController@categories')->name('categorie');
 // Tentang Kami
 Route::get('/tentangkami', 'IndexController@about')->name('tentangkami');
 
+// Contact
+Route::get('/kontakkami', 'IndexController@contact')->name('kontakkami.index');
+Route::post('/kontakkami', 'IndexController@contactStore')->name('kontakkami.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -74,6 +78,11 @@ Route::get('settings', 'SettingsController@index')->name('settings.index');
 Route::post('settings', 'SettingsController@store')->name('settings.store');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+
     // Setting Tentang Kami Admin
     Route::resource('tentangkami', 'AboutController', ['except' => ['create', 'store', 'destroy']]);
+
+    // Pesan
+    Route::resource('pesan', 'MessagesController');
+    Route::post('pesan/kirim-email', 'MessagesController@sendEmail')->name('pesan.email');
 });

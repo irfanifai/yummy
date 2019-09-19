@@ -71,7 +71,7 @@
 
     <!-- Nav Pesan-->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.pesan.index') }}">
         <i class="fas fa-fw fa-envelope"></i>
         <span>Pesan</span></a>
     </li>
