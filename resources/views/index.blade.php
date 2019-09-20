@@ -96,3 +96,4 @@
     <!-- Active JS -->
     <script src="{{ asset('yummy/js/active.js') }}"></script>
 </body>
+</html>

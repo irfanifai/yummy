@@ -37,7 +37,7 @@ class IndexController extends Controller
         $mainpost = Post::where('categorie_id', 11);
         $fourpost = Post::where('status', 'PUBLISH')->orderBy('id', 'DESC')->limit(4)->get();
         $posts = Post::where('status', 'PUBLISH')->inRandomOrder()->limit(5)->get();
-        $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'ASC')->limit(8)->get();
+        $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'DESC')->limit(8)->get();
         return view('index', compact('posts', 'mainpost', 'fourpost', 'postcategorie', 'newpost', 'photos', 'setting'));
     }
 
@@ -73,7 +73,7 @@ class IndexController extends Controller
         }
 
         $setting = $this->setting();
-        $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'ASC')->limit(8)->get();
+        $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'DESC')->limit(8)->get();
         $post = Post::where('slug', $slug)->first();
         $relatedpost = Post::where('status', 'PUBLISH')->inRandomOrder()->limit(9)->get();
         return view('single', compact('setting',  'newpost', 'post', 'relatedpost', 'photos'));

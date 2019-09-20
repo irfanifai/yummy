@@ -36,7 +36,7 @@
 
         <div class="row">
             <div class="col-12 mb-4">
-                <div class="hero text-white hero-bg-image" style="background-image: url(../yummy/img/bg-img/image.jpg);">
+                <div class="hero text-white hero-bg-image" style="background-image: url(../yummy/img/bg-img/breadcumb.jpg);">
                     <div class="hero-inner text-center">
                     <h4 class="text-white">{{ Auth::user()->name }} <img class="img-thumbnail ml-5 my-5" src="{{ Auth::user()->avatar }} " width="220px" height="220px" style="margin-left: 210px !important;"></h4>
                     </div>
@@ -51,9 +51,9 @@
                     <li class="nav-item">
                     <a class="nav-link active" href="#"><i class="fas fa-home"></i> Home</a>
                     </li>
-                    {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.edit', ['id' => $user->id]) }}"><i class="fas fa-user"></i> Profile</a>
-                    </li> --}}
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i> Profile</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

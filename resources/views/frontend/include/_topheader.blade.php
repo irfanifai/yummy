@@ -7,6 +7,9 @@
                 <a href="{{ $setting->link_twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 <a href="{{ $setting->link_instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="{{ $setting->link_youtube }}"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                @if (Auth::check())
+                <p class="ml-5 pt-3">Hi, {{ Auth::user()->name }}</p>
+                @endif
             </div>
         </div>
         <!--  Login Register Area -->

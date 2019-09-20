@@ -10,7 +10,7 @@
                         <!-- Post Thumb -->
                         <div class="post-thumb">
                             <a href="{{ url('/blog/' . $post->slug) }}">
-                                <img src="{{ asset($post->featured) }}" alt="">
+                                <img src="{{ asset($post->featured) }}" alt="Artikel" height="486px;">
                             </a>
                         </div>
                         <!-- Post Content -->
@@ -52,7 +52,7 @@
                         <!-- Post Thumb -->
                         <div class="post-thumb">
                             <a href="{{ url('/blog/' . $post->slug) }}">
-                                <img src="{{ asset($post->featured) }}" alt="">
+                                <img src="{{ asset($post->featured) }}" alt="Artikel" height="233px;">
                             </a>
                         </div>
                         <!-- Post Content -->
@@ -94,7 +94,7 @@
                         <!-- Post Thumb -->
                         <div class="post-thumb">
                             <a href="{{ url('/blog/' . $post->slug) }}">
-                                <img src="{{ asset($post->featured) }}" alt="">
+                                <img src="{{ asset($post->featured) }}" alt="Artikel" height="233px;">
                             </a>
                         </div>
                         <!-- Post Content -->
@@ -173,7 +173,7 @@
                     <!-- Single Popular Post -->
                     @foreach ($newpost as $post)
                     <div class="single-populer-post d-flex">
-                        <img src="{{ asset($post->featured) }}" alt="">
+                        <img src="{{ asset($post->featured) }}" alt="Artikel Baru">
                         <div class="post-content">
                             <a href="{{ url('/blog/' . $post->slug) }}">
                                 <h6>{{ $post->title }}</h6>

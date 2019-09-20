@@ -967,6 +967,7 @@ li {
 }
 
 .popular-post-widget .single-populer-post .post-content > p {
+    height: 50px;
     font-size: 14px;
     color: #b5aec4;
     font-weight: 400;
@@ -1503,4 +1504,33 @@ li {
 	z-index: 99999;
 	color: #fff;
 	cursor: pointer;
+}
+
+/* LOGIN USER*/
+.login{
+    margin-bottom: 30px;
+    background-color: #FC6C3F;
+}
+
+.akun{
+    margin-bottom: 50px;
+}
+
+.email{
+    margin-bottom: 50px;
+    background-color: #FC6C3F;
+}
+
+.register{
+    margin-bottom: 70px;
+    background-color: #FC6C3F;
+}
+
+.reset{
+    margin-bottom: 50px;
+    background-color: #FC6C3F;
+}
+
+.breadcrumb-image{
+    background-image: url(../yummy/img/bg-img/breadcumb.jpg)
 }

@@ -44,7 +44,7 @@
                         <div class="single-post">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <img src="{{ asset($post->featured) }}" alt="">
+                                <img src="{{ asset($post->featured) }}" alt="" height="446px;">
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -96,7 +96,7 @@
                                 <div class="single-post">
                                     <!-- Post Thumb -->
                                     <div class="post-thumb">
-                                        <img src="{{ asset($post->featured) }}" alt="">
+                                        <img src="{{ asset($post->featured) }}" alt="" height="110px;">
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
