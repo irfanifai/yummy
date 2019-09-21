@@ -15,26 +15,26 @@
 Route::get('/', 'IndexController@index');
 
 // Blog
-Route::get('/blog', 'IndexController@blog')->name('blog');
-Route::get('/blog/{slug}', 'IndexController@single');
-Route::post('/blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
+Route::get('blog', 'IndexController@blog')->name('blog');
+Route::get('blog/{slug}', 'IndexController@single');
+Route::post('blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
 
 // Kategori
-Route::get('/categorie', 'IndexController@categories')->name('categorie');
-Route::get('/categorie/{slug}', 'IndexController@pasta');
-
+Route::get('tag', 'IndexController@categories')->name('categorie');
+// Route::get('/categorie/{slug}', 'IndexController@pasta');
 
 // Tentang Kami
-Route::get('/tentangkami', 'IndexController@about')->name('tentangkami');
+Route::get('tentang-kami', 'IndexController@about')->name('tentang-kami');
 
 // Contact
-Route::get('/kontakkami', 'IndexController@contact')->name('kontakkami.index');
-Route::post('/kontakkami', 'IndexController@contactStore')->name('kontakkami.store');
+Route::get('kontak-kami', 'IndexController@contact')->name('kontak-kami.index');
+Route::post('kontak-kami', 'IndexController@contactStore')->name('kontak-kami.store');
 
+// Login User
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::get('home', 'HomeController@index')->name('home');
+Route::post('user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::get('auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');

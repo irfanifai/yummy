@@ -75,7 +75,7 @@
                     <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
                         <h2 class="contact-form-title mb-30">Jika Kamu Punya Pertanyaan Segera Hubungi Kami</h2>
                         <!-- Contact Form -->
-                        {!! Form::open(['route' => 'kontakkami.store', 'method' => 'POST']) !!}
+                        {!! Form::open(['route' => 'kontak-kami.store', 'method' => 'POST']) !!}
                         @csrf
                             <div class="form-group">
                                 {!! Form::text('name', null, ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Nama Lengkap', 'required']) !!}

@@ -15,11 +15,11 @@
                             <li class="{{ Request::is('/') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="{{ Request::is('tentangkami') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ url('/tentangkami') }}">Tentang Kami</a>
+                            <li class="{{ Request::is('tentang-kami') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('tentang-kami') }}">Tentang Kami</a>
                             </li>
-                            <li class="{{ Request::is('kontakkami') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ url('/kontakkami') }}">Kontak</a>
+                            <li class="{{ Request::is('kontak-kami') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('kontak-kami') }}">Kontak</a>
                             </li>
                         </ul>
                     </div>

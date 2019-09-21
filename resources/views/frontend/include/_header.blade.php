@@ -19,10 +19,10 @@
                             <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="{{ Request::is('blog') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
+                            <a class="nav-link" href="{{ url('blog') }}">Blog</a>
                         </li>
-                        <li class="{{ Request::is('categorie') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('/categorie') }}">Kategori</a>
+                        <li class="{{ Request::is('tag') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('tag') }}">Kategori</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pasta</a>

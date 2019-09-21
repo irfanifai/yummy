@@ -1,6 +1,6 @@
 @extends('frontend.app')
 
-@section("title") Kategori @endsection
+@section("title") Tag @endsection
 
 @section('content')
 <!-- ****** Breadcumb Area Start ****** -->
@@ -22,7 +22,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Kategori</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tag</li>
                     </ol>
                 </nav>
             </div>
@@ -41,7 +41,7 @@
                 <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
                     <img src="{{ asset($categorie->image) }}" alt="" width="350" height="233" style="background-size: cover;">
                     <div class="catagory-title">
-                        <a href="{{ url('/categorie/' . $categorie->slug) }}">
+                        <a href="{{ url('/tag/' . $categorie->slug) }}">
                             <h5>{{ $categorie->name }}</h5>
                         </a>
                     </div>

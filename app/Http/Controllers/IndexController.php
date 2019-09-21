@@ -162,7 +162,7 @@ class IndexController extends Controller
         ]);
 
         Message::create($request->all());
-        return redirect()->route('kontakkami.index')
+        return redirect()->route('kontak-kami.index')
             ->with('status', 'Terima Kasih, Pesan berhasil dikirim');
     }
 
