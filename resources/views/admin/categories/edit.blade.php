@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form enctype="multipart/form-data" method="POST" action="{{route('kategori.update', ['id'=>$categories->id])}}">
+            <form enctype="multipart/form-data" method="POST" action="{{route('admin.kategori-artikel.update', ['id'=>$categories->id])}}">
                 @method('patch')
                 @csrf
                 <div class="form-group">

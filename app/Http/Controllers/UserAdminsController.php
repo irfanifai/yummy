@@ -83,7 +83,7 @@ class UserAdminsController extends Controller
         }
 
         $new_user->save();
-        return redirect()->route('useradmin.index')
+        return redirect()->route('admin.user-admin.index')
             ->with('status', 'User Admin berhasil dibuat!');
     }
 
@@ -146,7 +146,7 @@ class UserAdminsController extends Controller
         }
 
         $user->save();
-        return redirect()->route('useradmin.index')
+        return redirect()->route('admin.user-admin.index')
             ->with('status', 'User Admin berhasil diupdate');
     }
 
@@ -162,7 +162,7 @@ class UserAdminsController extends Controller
 
         $user->delete();
 
-        return redirect()->route('useradmin.index')
+        return redirect()->route('admin.user-admin.index')
             ->with('status', 'User Admin berhasil dipindahkan ke trash');
     }
 
@@ -180,11 +180,11 @@ class UserAdminsController extends Controller
         if ($user->trashed()) {
             $user->restore();
         } else {
-            return redirect()->route('useradmin.trash')
+            return redirect()->route('admin.user-admin.trash')
                 ->with('status', 'Tidak dapat menghapus User Admin aktif secara permanen');
         }
 
-        return redirect()->route('useradmin.trash')
+        return redirect()->route('admin.user-admin.trash')
             ->with('status', 'User Admin berhasil di restore');
     }
 
@@ -193,12 +193,12 @@ class UserAdminsController extends Controller
         $user = Admin::withTrashed()->findOrFail($id);
 
         if (!$user->trashed()) {
-            return redirect()->route('useradmin.index')
+            return redirect()->route('admin.user-admin.index')
                 ->with('status', 'User Admin tidak berada di trash');
         } else {
             $user->forceDelete();
 
-            return redirect()->route('useradmin.index')
+            return redirect()->route('admin.user-admin.index')
                 ->with('status', 'User Admin dihapus secara permanen');
         }
     }

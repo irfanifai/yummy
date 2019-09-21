@@ -143,13 +143,13 @@
                 <img src="{{asset($post->featured)}}" class="card-img-top" alt="featured" style="height: 200px;">
                 <div class="card-body">
                     <div class="article-title">
-                        <p style="height: 20px;"><a href="{{ route('artikel.show', ['id' => $post->id]) }}">{{ $post->title }}</a></p>
+                        <p style="height: 20px;"><a href="{{ route('admin.artikel.show', ['id' => $post->id]) }}">{{ $post->title }}</a></p>
                     </div>
                     @php $text = $post->body; $max = 150; $body = substr($text, 0, $max) . '...'; @endphp
                     <p class="card-text pt-5" style="height: 50px;">{{ strip_tags($body) }}...</p>
                 </div>
                 <div class="article-cta mb-1">
-                    <a href="{{ route('artikel.show', ['id' => $post->id]) }}">Baca lebih lajut<i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ route('admin.artikel.show', ['id' => $post->id]) }}">Baca lebih lajut<i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>

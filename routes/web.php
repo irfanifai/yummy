@@ -21,6 +21,8 @@ Route::post('/blog/{slug}/comment', 'IndexController@comment')->name('post.comme
 
 // Kategori
 Route::get('/categorie', 'IndexController@categories')->name('categorie');
+Route::get('/categorie/{slug}', 'IndexController@pasta');
+
 
 // Tentang Kami
 Route::get('/tentangkami', 'IndexController@about')->name('tentangkami');
@@ -37,6 +39,7 @@ Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logou
 Route::get('auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
+// Login Admin
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin.home');
     Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
@@ -49,40 +52,43 @@ Route::prefix('admin')->group(function () {
     Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset')->name('admin.password.update');
 });
 
-// User Web Admin
-Route::get('users/trash', 'UsersController@trash')->name('users.trash');
-Route::get('users/{id}/restore', 'UsersController@restore')->name('users.restore');
-Route::delete('users/{id}/delete-permanent', 'UsersController@deletePermanent')->name('users.delete-permanent');
-Route::resource('users', 'UsersController', ['except' => ['create', 'store']]);
-
-// User Admin
-Route::get('useradmin/trash', 'userAdminsController@trash')->name('useradmin.trash');
-Route::get('useradmin/{id}/restore', 'userAdminsController@restore')->name('useradmin.restore');
-Route::delete('useradmin/{id}/delete-permanent', 'userAdminsController@deletePermanent')->name('useradmin.delete-permanent');
-Route::resource('useradmin', 'UserAdminsController');
-
-// kategori Admin
-Route::get('kategori/trash', 'CategoriesController@trash')->name('kategori.trash');
-Route::get('kategori/{id}/restore', 'CategoriesController@restore')->name('kategori.restore');
-Route::delete('kategori/{id}/delete-permanent', 'CategoriesController@deletePermanent')->name('kategori.delete-permanent');
-Route::resource('kategori', 'CategoriesController', ['except' => ['show']]);
-
-// Artikel Admin
-Route::get('artikel/trash', 'PostsController@trash')->name('artikel.trash');
-Route::get('artikel/{id}/restore', 'PostsController@restore')->name('artikel.restore');
-Route::delete('artikel/{id}/delete-permanent', 'PostsController@deletePermanent')->name('artikel.delete-permanent');
-Route::resource('artikel', 'PostsController');
-
-// Setting Footer Admin
-Route::get('settings', 'SettingsController@index')->name('settings.index');
-Route::post('settings', 'SettingsController@store')->name('settings.store');
-
+// Backend
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     // Setting Tentang Kami Admin
     Route::resource('tentangkami', 'AboutController', ['except' => ['create', 'store', 'destroy']]);
 
-    // Pesan
+    // Pesan Admin
     Route::resource('pesan', 'MessagesController');
     Route::post('pesan/kirim-email', 'MessagesController@sendEmail')->name('pesan.email');
+
+    // Artikel Admin
+    Route::get('artikel/trash', 'PostsController@trash')->name('artikel.trash');
+    Route::get('artikel/{id}/restore', 'PostsController@restore')->name('artikel.restore');
+    Route::delete('artikel/{id}/delete-permanent', 'PostsController@deletePermanent')->name('artikel.delete-permanent');
+    Route::resource('artikel', 'PostsController');
+
+    // User Admin
+    Route::get('user-admin/trash', 'userAdminsController@trash')->name('user-admin.trash');
+    Route::get('user-admin/{id}/restore', 'userAdminsController@restore')->name('user-admin.restore');
+    Route::delete('user-admin/{id}/delete-permanent', 'userAdminsController@deletePermanent')->name('user-admin.delete-permanent');
+    Route::resource('user-admin', 'UserAdminsController');
+
+    // User Web
+    Route::get('user/trash', 'UsersController@trash')->name('user.trash');
+    Route::get('user/{id}/restore', 'UsersController@restore')->name('user.restore');
+    Route::delete('user/{id}/delete-permanent', 'UsersController@deletePermanent')->name('user.delete-permanent');
+    Route::resource('user', 'UsersController', ['except' => ['create', 'store']]);
+
+    // kategori Artikel
+    Route::get('kategori-artikel/trash', 'CategoriesController@trash')->name('kategori-artikel.trash');
+    Route::get('kategori-artikel/{id}/restore', 'CategoriesController@restore')->name('kategori-artikel.restore');
+    Route::delete('kategori-artikel/{id}/delete-permanent', 'CategoriesController@deletePermanent')->name('kategori-artikel.delete-permanent');
+    Route::resource('kategori-artikel', 'CategoriesController', ['except' => ['show']]);
+
+    // Setting Footer Admin
+    Route::get('pengaturan', 'SettingsController@index')->name('pengaturan.index');
+    Route::post('pengaturan', 'SettingsController@store')->name('pengaturan.store');
+
+
 });

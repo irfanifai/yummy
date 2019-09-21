@@ -27,15 +27,15 @@
         </a>
         <div id="userAdmin" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('useradmin.index') }}">Daftar User Admin</a>
-            <a class="collapse-item" href="{{ route('useradmin.create') }}">Buat User Admin Baru</a>
+            <a class="collapse-item" href="{{ route('admin.user-admin.index') }}">Daftar User Admin</a>
+            <a class="collapse-item" href="{{ route('admin.user-admin.create') }}">Buat User Admin Baru</a>
         </div>
         </div>
     </li>
 
     <!-- Nav Item User Website-->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('users.index') }}">
+        <a class="nav-link" href="{{ route('admin.user.index') }}">
         <i class="fas fa-fw fa-user-circle"></i>
         <span>User Web</span></a>
     </li>
@@ -48,9 +48,9 @@
         </a>
         <div id="article" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('artikel.index') }}">Semua Artikel</a>
-            <a class="collapse-item" href="{{ route('artikel.create') }}">Buat Artikel</a>
-            <a class="collapse-item" href="{{ route('kategori.index') }}">Kategori Artikel</a>
+            <a class="collapse-item" href="{{ route('admin.artikel.index') }}">Semua Artikel</a>
+            <a class="collapse-item" href="{{ route('admin.artikel.create') }}">Buat Artikel</a>
+            <a class="collapse-item" href="{{ route('admin.kategori-artikel.index') }}">Kategori Artikel</a>
         </div>
         </div>
     </li>
@@ -78,7 +78,7 @@
 
     <!-- Nav Pesan-->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('settings.index') }}">
+        <a class="nav-link" href="{{ route('admin.pengaturan.index') }}">
         <i class="fas fa-fw fa-cog"></i>
         <span>Pengaturan Footer</span></a>
     </li>

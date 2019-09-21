@@ -5,14 +5,14 @@
 @section('content')
 <div class="card shadow mb-2">
     <div class="card-header py-3">
-        <h5 class="m-0 font-weight-bold text-primary">Daftar Kategori</h6h>
+        <h5 class="m-0 font-weight-bold text-primary">Daftar Kategori Artikel</h6h>
     </div>
 
     <div class="card">
         <div class="card-body">
 
         <div class="col-3 float-right mb-4">
-            <form action="{{ route('kategori.index') }}">
+            <form action="{{ route('admin.kategori-artikel.index') }}">
                 <div class="input-group">
                     <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan nama">
                     <div class="input-group-append">
@@ -25,10 +25,10 @@
         <div class="col-md-8 float-left mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{{route('kategori.create')}}" class="btn btn-primary">Buat Kategori Baru</a>
+                    <a href="{{route('admin.kategori-artikel.create')}}" class="btn btn-primary">Buat Kategori Baru</a>
                 </li>
                 <li class="nav-item ml-2">
-                    <a href="{{route('kategori.trash')}}" class="btn btn-primary">Trash</a>
+                    <a href="{{route('admin.kategori-artikel.trash')}}" class="btn btn-primary">Trash</a>
                 </li>
             </ul>
         </div>
@@ -64,9 +64,9 @@
                     <td>{{ $categorie->name }}</td>
                     <td>{{ $categorie->slug }}</td>
                     <td>
-                        <a href="{{ route('kategori.edit', ['id' => $categorie->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ route('admin.kategori-artikel.edit', ['id' => $categorie->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
 
-                        <form onsubmit="return confirm('Pindahkan kategori to trash?')" class="d-inline" action="{{route('kategori.destroy', ['id' => $categorie->id ])}}" method="POST">
+                        <form onsubmit="return confirm('Pindahkan kategori artikel ke trash?')" class="d-inline" action="{{route('admin.kategori-artikel.destroy', ['id' => $categorie->id ])}}" method="POST">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Trash"><i class="fas fa-trash"></i>

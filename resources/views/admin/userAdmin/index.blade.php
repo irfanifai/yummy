@@ -24,16 +24,16 @@
             <div class=" col-md-8 float-left mb-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'useradmin' ? 'active' : ''}}" href="{{route('useradmin.index')}}">All</a>
+                        <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'admin/user-admin' ? 'active' : ''}}" href="{{route('admin.user-admin.index')}}">All</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') === 'active'? 'active' : '' }}" href="{{route('useradmin.index', ['status' => 'active'])}}">Active</a>
+                        <a class="nav-link {{Request::get('status') === 'active'? 'active' : '' }}" href="{{route('admin.user-admin.index', ['status' => 'active'])}}">Active</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') == 'inactive'? 'active' : '' }}" href="{{route('useradmin.index', ['status' => 'inactive'])}}">Inactive</a>
+                        <a class="nav-link {{Request::get('status') == 'inactive'? 'active' : '' }}" href="{{route('admin.user-admin.index', ['status' => 'inactive'])}}">Inactive</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::path() == 'users/trash' ? 'active' : ''}}" href="{{route('useradmin.trash')}}">Trash</a>
+                        <a class="nav-link {{Request::path() == 'admin/user-admin/trash' ? 'active' : ''}}" href="{{route('admin.user-admin.trash')}}">Trash</a>
                     </li>
                 </ul>
             </div>
@@ -87,10 +87,10 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('useradmin.edit', ['id' => $user->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-fw fa-pencil-alt"></i></a>
-                            <a href="{{ route('useradmin.show', ['id' => $user->id]) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Detail"><i class="fas fa-fw fa-info"></i></i></a>
+                            <a href="{{ route('admin.user-admin.edit', ['id' => $user->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-fw fa-pencil-alt"></i></a>
+                            <a href="{{ route('admin.user-admin.show', ['id' => $user->id]) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Detail"><i class="fas fa-fw fa-info"></i></i></a>
 
-                            <form onsubmit="return confirm('Pindahkan User Admin ke trash?')" class="d-inline" action="{{route('useradmin.destroy', ['id' => $user->id ])}}" method="POST">
+                            <form onsubmit="return confirm('Pindahkan User Admin ke trash?')" class="d-inline" action="{{route('admin.user-admin.destroy', ['id' => $user->id ])}}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Trash"><i class="fas fa-fw fa-trash"></i>

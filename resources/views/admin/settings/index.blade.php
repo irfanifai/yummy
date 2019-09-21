@@ -20,7 +20,7 @@
         </div>
         @endif
 
-        <form method="POST" action="{{route('settings.store', ['id'=>$setting->id])}}">
+        <form method="POST" action="{{route('admin.pengaturan.store', ['id'=>$setting->id])}}">
             @csrf
             <div class="card-body">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

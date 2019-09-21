@@ -89,15 +89,13 @@ class PostsController extends Controller
 
         if ($request->get('status') == 'PUBLISH') {
             return redirect()
-                ->route('artikel.index')
+                ->route('admin.artikel.index')
                 ->with('status', 'Artikel berhasil disimpan dan dipublish');
         } else {
             return redirect()
-                ->route('artikel.index')
+                ->route('admin.artikel.index')
                 ->with('status', 'Artikel disimpan sebagai draft');
         }
-
-        // dd($request->all());
     }
 
     /**
@@ -163,7 +161,7 @@ class PostsController extends Controller
         }
 
         $post->save();
-        return redirect()->route('artikel.index')
+        return redirect()->route('admin.artikel.index')
             ->with('status', 'Artikel berhasil diupdate');
 
         // dd($request->all());
@@ -181,7 +179,7 @@ class PostsController extends Controller
 
         $post->delete();
 
-        return redirect()->route('artikel.index')
+        return redirect()->route('admin.artikel.index')
             ->with('status', 'Artikel berhasil dipindahkan ke trash');
     }
 

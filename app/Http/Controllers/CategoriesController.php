@@ -63,7 +63,7 @@ class CategoriesController extends Controller
         }
 
         $categorie->save();
-        return redirect()->route('kategori.index')
+        return redirect()->route('admin.kategori-artikel.index')
             ->with('status', 'Kategori berhasil dibuat');
     }
 
@@ -122,7 +122,7 @@ class CategoriesController extends Controller
         }
 
         $categorie->save();
-        return redirect()->route('kategori.index')
+        return redirect()->route('admin.kategori-artikel.index')
             ->with('status', 'Kategori berhasil berhasil diupdate');
 
         // dd($request->all());
@@ -140,7 +140,7 @@ class CategoriesController extends Controller
 
         $categorie->delete();
 
-        return redirect()->route('kategori.index')
+        return redirect()->route('admin.kategori-artikel.index')
             ->with('status', 'Kategori berhasil dipindahkan ke trash');
     }
 
@@ -158,11 +158,11 @@ class CategoriesController extends Controller
         if ($categorie->trashed()) {
             $categorie->restore();
         } else {
-            return redirect()->route('kategori.trash')
+            return redirect()->route('admin.kategori.trash')
                 ->with('status', 'Tidak dapat menghapus kategori aktif secara permanen');
         }
 
-        return redirect()->route('kategori.index')
+        return redirect()->route('admin.kategori-artikel.index')
             ->with('status', 'Kategori berhasil di restore');
     }
 
@@ -171,12 +171,12 @@ class CategoriesController extends Controller
         $categorie = Categorie::withTrashed()->findOrFail($id);
 
         if (!$categorie->trashed()) {
-            return redirect()->route('kategori.index')
+            return redirect()->route('admin.kategori-artikel.index')
                 ->with('status', 'Kategori tidak berada di trash');
         } else {
             $categorie->forceDelete();
 
-            return redirect()->route('kategori.index')
+            return redirect()->route('admin.kategori-artikel.index')
                 ->with('status', 'Kategori dihapus secara permanen');
         }
     }

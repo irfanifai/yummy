@@ -24,16 +24,16 @@
             <div class=" col-md-8 float-left mb-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'useradmin' ? 'active' : ''}}" href="{{route('useradmin.index')}}">All</a>
+                        <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'admin.user-admin' ? 'active' : ''}}" href="{{route('admin.user-admin.index')}}">All</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') === 'active'? 'active' : '' }}" href="{{route('useradmin.index', ['status' => 'active'])}}">Active</a>
+                        <a class="nav-link {{Request::get('status') === 'active'? 'active' : '' }}" href="{{route('admin.user-admin.index', ['status' => 'active'])}}">Active</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::get('status') == 'inactive'? 'active' : '' }}" href="{{route('useradmin.index', ['status' => 'inactive'])}}">Inactive</a>
+                        <a class="nav-link {{Request::get('status') == 'inactive'? 'active' : '' }}" href="{{route('admin.user-admin.index', ['status' => 'inactive'])}}">Inactive</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::path() == 'useradmin/trash' ? 'active' : ''}}" href="{{route('useradmin.trash')}}">Trash</a>
+                        <a class="nav-link {{Request::path() == 'admin/user-admin/trash' ? 'active' : ''}}" href="{{route('admin.user-admin.trash')}}">Trash</a>
                     </li>
                 </ul>
             </div>
@@ -87,9 +87,9 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('useradmin.restore', ['id' => $user->id]) }}" class="btn btn-success">Restore</a>
+                            <a href="{{ route('admin.user-admin.restore', ['id' => $user->id]) }}" class="btn btn-success">Restore</a>
 
-                            <form onsubmit="return confirm('Hapus user secara permanen?')" class="d-inline" action="{{route('useradmin.delete-permanent', ['id' => $user->id ])}}" method="POST">
+                            <form onsubmit="return confirm('Hapus user secara permanen?')" class="d-inline" action="{{route('admin.user-admin.delete-permanent', ['id' => $user->id ])}}" method="POST">
                                 @method('delete')
                                 @csrf
 

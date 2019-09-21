@@ -5,14 +5,18 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form enctype="multipart/form-data" method="POST" action="{{ route('users.update', ['id'=>$user->id])}}">
+        <form enctype="multipart/form-data" method="POST" action="{{ route('admin.user.update', ['id'=>$user->id])}}">
             @method('patch')
             @csrf
 
             <div class="row">
                 <div class="form-group col-md-4 col-4">
                     <p class="text-center">Foto Profile Saat Ini</p>
-                    <img class="img-thumbnail" src="{{ asset($user->avatar) }}" width="320px" height="280px">
+                    @if($user->avatar)
+                        <img class="img-thumbnail" src="{{ asset($user->avatar) }}" width="320px" height="280px">
+                    @else
+                        <p class="text-center mx-auto">N/A</p>
+                    @endif
                 </div>
                 <div class="form-group col-md-8 col-8 mt-4">
                     <label>Nama Lengkap</label>

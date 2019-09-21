@@ -27,7 +27,7 @@ class SettingsController extends Controller
             'id' => 1
         ], $request->all());
 
-        return redirect()->route('settings.index')
+        return redirect()->route('admin.pengaturan.index')
             ->with('status', 'Pengaturan Footer berhasil diupdate');
     }
 }

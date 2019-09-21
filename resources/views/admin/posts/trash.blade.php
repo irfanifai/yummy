@@ -11,7 +11,7 @@
         <div class="card-body">
 
             <div class="col-4 float-right mb-4">
-                <form action="{{ route('artikel.index') }}">
+                <form action="{{ route('admin.artikel.index') }}">
                     <div class="input-group">
                         <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan judul artikel">
                         <div class="input-group-append">
@@ -21,10 +21,19 @@
                 </form>
             </div>
 
-            <div class=" col-md-8 float-left mb-3">
+            <div class=" col-8 float-left mb-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a href="{{route('artikel.index')}}" class="btn btn-primary">Semua Artikel</a>
+                        <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'admin/artikel' ? 'active' : ''}}" href="{{route('admin.artikel.index')}}">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::get('status') === 'publish'? 'active' : '' }}" href="{{route('admin.artikel.index', ['status' => 'publish'])}}">Publish</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::get('status') == 'draft'? 'active' : '' }}" href="{{route('admin.artikel.index', ['status' => 'draft'])}}">Draft</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::path() == 'admin/artikel/trash' ? 'active' : ''}}" href="{{route('admin.artikel.trash')}}">Trash</a>
                     </li>
                 </ul>
             </div>
@@ -66,9 +75,9 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('artikel.restore', ['id' => $post->id]) }}" class="btn btn-success">Restore</a>
+                            <a href="{{ route('admin.artikel.restore', ['id' => $post->id]) }}" class="btn btn-success">Restore</a>
 
-                            <form onsubmit="return confirm('Hapus artikel secara permanen?')" class="d-inline" action="{{route('artikel.delete-permanent', ['id' => $post->id ])}}" method="POST">
+                            <form onsubmit="return confirm('Hapus artikel secara permanen?')" class="d-inline" action="{{route('admin.artikel.delete-permanent', ['id' => $post->id ])}}" method="POST">
                                 @method('delete')
                                 @csrf
 

@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($post, ['route' => ['artikel.update', $post->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::model($post, ['route' => ['admin.artikel.update', $post->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
             @csrf
 
                 <div class="form-group">

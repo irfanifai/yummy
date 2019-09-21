@@ -12,7 +12,7 @@
         <div class="card-body">
 
         <div class="col-4 float-right mb-4">
-            <form action="{{ route('artikel.index') }}">
+            <form action="{{ route('admin.artikel.index') }}">
                 <div class="input-group">
                     <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan judul artikel">
                     <div class="input-group-append">
@@ -25,16 +25,16 @@
         <div class=" col-8 float-left mb-4">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'artikel' ? 'active' : ''}}" href="{{route('artikel.index')}}">All</a>
+                    <a class="nav-link {{Request::get('status') == NULL && Request::path() == 'admin/artikel' ? 'active' : ''}}" href="{{route('admin.artikel.index')}}">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{Request::get('status') === 'publish'? 'active' : '' }}" href="{{route('artikel.index', ['status' => 'publish'])}}">Publish</a>
+                    <a class="nav-link {{Request::get('status') === 'publish'? 'active' : '' }}" href="{{route('admin.artikel.index', ['status' => 'publish'])}}">Publish</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{Request::get('status') == 'draft'? 'active' : '' }}" href="{{route('artikel.index', ['status' => 'draft'])}}">Draft</a>
+                    <a class="nav-link {{Request::get('status') == 'draft'? 'active' : '' }}" href="{{route('admin.artikel.index', ['status' => 'draft'])}}">Draft</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{Request::path() == 'users/trash' ? 'active' : ''}}" href="{{route('artikel.trash')}}">Trash</a>
+                    <a class="nav-link {{Request::path() == 'admin/artikel/trash' ? 'active' : ''}}" href="{{route('admin.artikel.trash')}}">Trash</a>
                 </li>
             </ul>
         </div>
@@ -76,10 +76,10 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('artikel.edit', ['id' => $post->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="{{ route('artikel.show', ['id' => $post->id]) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Detail"><i class="fas fa-info"></i></i></a>
+                        <a href="{{ route('admin.artikel.edit', ['id' => $post->id]) }}" class="btn btn-warning btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{ route('admin.artikel.show', ['id' => $post->id]) }}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Detail"><i class="fas fa-info"></i></i></a>
 
-                        <form onsubmit="return confirm('Pindahkan artikel ke trash?')" class="d-inline" action="{{route('artikel.destroy', ['id' => $post->id ])}}" method="POST">
+                        <form onsubmit="return confirm('Pindahkan artikel ke trash?')" class="d-inline" action="{{route('admin.artikel.destroy', ['id' => $post->id ])}}" method="POST">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Trash"><i class="fas fa-trash"></i>

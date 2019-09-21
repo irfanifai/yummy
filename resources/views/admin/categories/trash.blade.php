@@ -24,7 +24,7 @@
         <div class="col-md-8 float-left mb-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{{route('kategori.index')}}" class="btn btn-primary">Semua Kategori</a>
+                    <a href="{{route('admin.kategori-artikel.index')}}" class="btn btn-primary">Semua Kategori</a>
                 </li>
             </ul>
         </div>
@@ -60,9 +60,9 @@
                     <td>{{ $categorie->name }}</td>
                     <td>{{ $categorie->slug }}</td>
                     <td>
-                        <a href="{{ route('kategori.restore', ['id' => $categorie->id]) }}" class="btn btn-success">Restore</a>
+                        <a href="{{ route('admin.kategori-artikel.restore', ['id' => $categorie->id]) }}" class="btn btn-success">Restore</a>
 
-                        <form onsubmit="return confirm('Hapus kategori secara permanen?')" class="d-inline" action="{{route('kategori.delete-permanent', ['id' => $categorie->id ])}}" method="POST">
+                        <form onsubmit="return confirm('Hapus kategori artikel secara permanen?')" class="d-inline" action="{{route('admin.kategori-artikel.delete-permanent', ['id' => $categorie->id ])}}" method="POST">
                             @method('delete')
                             @csrf
 

@@ -19,12 +19,12 @@ class UsersController extends Controller
 
         $status = $request->get('status');
         if ($status) {
-            $users = \App\User::where('status', strtoupper($status))->paginate(10);
+            $users = User::where('status', strtoupper($status))->paginate(10);
         } else {
-            $users = \App\User::paginate(10);
+            $users = User::paginate(10);
         }
 
-        $filterKeyword = $request->get('keyword');
+        $filterKeyword = $request->get('nameuser');
         if ($filterKeyword) {
             $users = User::where('name', 'LIKE', "%$filterKeyword%")->paginate(10);
         }
@@ -123,7 +123,7 @@ class UsersController extends Controller
         }
 
         $user->save();
-        return redirect()->route('users.index')
+        return redirect()->route('admin.user.index')
             ->with('status', 'User berhasil diupdate');
     }
 
@@ -139,7 +139,7 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.user.index')
             ->with('status', 'User berhasil dipindahkan ke trash');
     }
 
@@ -157,11 +157,11 @@ class UsersController extends Controller
         if ($user->trashed()) {
             $user->restore();
         } else {
-            return redirect()->route('users.trash')
+            return redirect()->route('admin.user.trash')
                 ->with('status', 'Tidak dapat menghapus user aktif secara permanen');
         }
 
-        return redirect()->route('users.trash')
+        return redirect()->route('admin.user.trash')
             ->with('status', 'User berhasil di restore');
     }
 
@@ -170,12 +170,12 @@ class UsersController extends Controller
         $user = User::withTrashed()->findOrFail($id);
 
         if (!$user->trashed()) {
-            return redirect()->route('users.index')
+            return redirect()->route('admin.user.index')
                 ->with('status', 'User tidak berada di trash');
         } else {
             $user->forceDelete();
 
-            return redirect()->route('users.index')
+            return redirect()->route('admin.user.index')
                 ->with('status', 'User dihapus secara permanen');
         }
     }
