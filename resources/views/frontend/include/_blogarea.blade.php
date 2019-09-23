@@ -19,12 +19,12 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="">{{ $post->user->name }}</a>
+                                        <a class="text-muted">{{ $post->user->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     @php $date = $post->created_at; $date = date( "F j, Y", strtotime($date));@endphp
                                     <div class="post-date">
-                                        <a href="">{{ $date }}</a>
+                                        <a class="text-muted">{{ $date }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
@@ -61,19 +61,19 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="">{{ $post->user->name }}</a>
+                                        <a class="text-muted">{{ $post->user->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
                                         @php $date = $post->created_at; $date = date( "F j, Y", strtotime($date));@endphp
-                                        <a href="">{{ $date }}</a>
+                                        <a class="text-muted">{{ $date }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,19 +103,19 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="">{{ $post->user->name }}</a>
+                                        <a class="text-muted">{{ $post->user->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
                                         @php $date = $post->created_at; $date = date( "F j, Y", strtotime($date));@endphp
-                                        <a href="">{{ $date }}</a>
+                                        <a class="text-muted">{{ $date }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                     </div>
                                 </div>
                             </div>

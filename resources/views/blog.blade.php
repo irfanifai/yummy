@@ -43,7 +43,7 @@
                     <!-- Post Thumb -->
                     <div class="post-thumb">
                         <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
-                            <img src="{{ asset($post->featured) }}" alt="">
+                            <img src="{{ asset($post->featured) }}" alt="images">
                         </a>
                     </div>
                     <!-- Post Content -->

@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 });
 
 // Frontend/Root
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('index');
 
 //Blog
 Route::get('artikel', 'IndexController@blog')->name('artikel');
@@ -90,6 +90,6 @@ Route::get('tentang-kami', 'IndexController@about')->name('tentang-kami');
 Route::get('kontak-kami', 'IndexController@contact')->name('kontak-kami.index');
 Route::post('kontak-kami', 'IndexController@contactStore')->name('kontak-kami.store');
 
-
+// Route Model Binding Kategori/Slug
 Route::get('/{categorie}', 'IndexController@getPostByCategorySlug');
 Route::get('/{categorie}/{slug}', 'IndexController@single');

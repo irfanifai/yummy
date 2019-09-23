@@ -59,7 +59,7 @@ class IndexController extends Controller
         return view('blog', compact('setting', 'posts', 'photos', 'posts'));
     }
 
-    public function getPostByCategorySlug($categorie = null)
+    public function getPostByCategorySlug($categorie)
     {
         $client = new Client();
 
@@ -80,7 +80,7 @@ class IndexController extends Controller
         return view('allPost', compact('setting', 'photos', 'posts', 'categorie', 'fourpost', 'newpost'));
     }
 
-    public function single($category = null , $slug = null)
+    public function single($category , $slug)
     {
         $client = new Client();
 
