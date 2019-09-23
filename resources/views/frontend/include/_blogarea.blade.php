@@ -9,7 +9,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <a href="{{ url('/blog/' . $post->slug) }}">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <img src="{{ asset($post->featured) }}" alt="Artikel" height="486px;">
                             </a>
                         </div>
@@ -35,11 +35,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ url('/blog/' . $post->slug) }}">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h2 class="post-headline">{{ $post->title }}</h2>
                             </a>
                             <p>{!! substr($post->body, 0, 175) !!}...</p>
-                            <a href="{{ url('/blog/' . $post->slug) }}" class="read-more">Continue Reading..</a>
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}" class="read-more">Lanjutkan Membaca...</a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <a href="{{ url('/blog/' . $post->slug) }}">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <img src="{{ asset($post->featured) }}" alt="Artikel" height="233px;">
                             </a>
                         </div>
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h4 class="post-headline">{{ $post->title }}</h4>
                             </a>
                         </div>
@@ -93,7 +93,7 @@
                     <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <a href="{{ url('/blog/' . $post->slug) }}">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <img src="{{ asset($post->featured) }}" alt="Artikel" height="233px;">
                             </a>
                         </div>
@@ -119,11 +119,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h4 class="post-headline">{{ $post->title }}</h4>
                             </a>
                             <p>{!! substr($post->body, 0, 175) !!}...</p>
-                            <a href="{{ url('/blog/' . $post->slug) }}" class="read-more">Continue Reading..</a>
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}" class="read-more">Lanjutkan Membaca...</a>
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                     <div class="single-populer-post d-flex">
                         <img src="{{ asset($post->featured) }}" alt="Artikel Baru">
                         <div class="post-content">
-                            <a href="{{ url('/blog/' . $post->slug) }}">
+                            <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h6>{{ $post->title }}</h6>
                             </a>
                             @php $date = $post->created_at; $date = date( "l, F j, Y", strtotime($date));@endphp
@@ -214,7 +214,7 @@
                         </form>
                     </div>
 
-                    <img class="mt-5" src="{{ asset('images/promosi.png') }}" alt="">
+                    <img class="mt-5" src="{{ asset('images/promosi1.png') }}" alt="">
                 </div>
 
             </div>

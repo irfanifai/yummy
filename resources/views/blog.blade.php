@@ -1,6 +1,6 @@
 @extends('frontend.app')
 
-@section("title") Blog @endsection
+@section("title") Artikel @endsection
 
 @section('content')
 <!-- ****** Breadcumb Area Start ****** -->
@@ -9,7 +9,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="bradcumb-title text-center">
-                    <h2>Blog</h2>
+                    <h2>Semua Artikel</h2>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        <li class="breadcrumb-item active" aria-current="page">Semua Artikel</li>
                     </ol>
                 </nav>
             </div>
@@ -42,7 +42,7 @@
                 <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                     <!-- Post Thumb -->
                     <div class="post-thumb">
-                        <a href="{{ url('/blog/' . $post->slug) }}">
+                        <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                             <img src="{{ asset($post->featured) }}" alt="">
                         </a>
                     </div>
@@ -52,23 +52,23 @@
                             <div class="post-author-date-area d-flex">
                                 <!-- Post Author -->
                                 <div class="post-author">
-                                    <a href="">{{ $post->user->name }}</a>
+                                    <a class="text-muted">{{ $post->user->name }}</a>
                                 </div>
                                 <!-- Post Date -->
                                 <div class="post-date">
                                     @php $date = $post->created_at; $date = date( "F j, Y", strtotime($date));@endphp
-                                    <a href="">{{ $date }}</a>
+                                    <a class="text-muted">{{ $date }}</a>
                                 </div>
                             </div>
                             <!-- Post Comment & Share Area -->
                             <div class="post-comment-share-area d-flex">
                                 <!-- Post Comments -->
                                 <div class="post-comments">
-                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                    <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
                                 </div>
                             </div>
                         </div>
-                        <a href="{{ url('/blog/' . $post->slug) }}">
+                        <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                             <h4 class="post-headline">{{ $post->title }}</h4>
                         </a>
                     </div>

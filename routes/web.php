@@ -11,25 +11,6 @@
 |
 */
 
-// Frontend/Root
-Route::get('/', 'IndexController@index');
-
-// Blog
-Route::get('blog', 'IndexController@blog')->name('blog');
-Route::get('blog/{slug}', 'IndexController@single');
-Route::post('blog/{slug}/comment', 'IndexController@comment')->name('post.comment');
-
-// Kategori
-Route::get('tag', 'IndexController@categories')->name('categorie');
-// Route::get('/categorie/{slug}', 'IndexController@pasta');
-
-// Tentang Kami
-Route::get('tentang-kami', 'IndexController@about')->name('tentang-kami');
-
-// Contact
-Route::get('kontak-kami', 'IndexController@contact')->name('kontak-kami.index');
-Route::post('kontak-kami', 'IndexController@contactStore')->name('kontak-kami.store');
-
 // Login User
 Auth::routes();
 
@@ -92,3 +73,23 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
 
 });
+
+// Frontend/Root
+Route::get('/', 'IndexController@index');
+
+//Blog
+Route::get('artikel', 'IndexController@blog')->name('artikel');
+
+//Kategori List
+Route::get('kategori-list', 'IndexController@categories')->name('kategori-list');
+
+// Tentang Kami
+Route::get('tentang-kami', 'IndexController@about')->name('tentang-kami');
+
+// Contact
+Route::get('kontak-kami', 'IndexController@contact')->name('kontak-kami.index');
+Route::post('kontak-kami', 'IndexController@contactStore')->name('kontak-kami.store');
+
+
+Route::get('/{categorie}', 'IndexController@getPostByCategorySlug');
+Route::get('/{categorie}/{slug}', 'IndexController@single');

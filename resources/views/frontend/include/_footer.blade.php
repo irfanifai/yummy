@@ -15,6 +15,9 @@
                             <li class="{{ Request::is('/') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                             </li>
+                            <li class="{{ Request::is('kategori-list') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('kategori-list') }}">Kategori List</a>
+                            </li>
                             <li class="{{ Request::is('tentang-kami') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('tentang-kami') }}">Tentang Kami</a>
                             </li>

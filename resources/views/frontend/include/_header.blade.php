@@ -18,23 +18,26 @@
                         <li class="{{ Request::is('/') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="{{ Request::is('blog') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('blog') }}">Blog</a>
+                        <li class="{{ Request::is('steak') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('steak') }}">Steak</a>
                         </li>
-                        <li class="{{ Request::is('tag') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('tag') }}">Kategori</a>
+                        <li class="{{ Request::is('pasta') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('pasta') }}">Pasta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pasta</a>
+                        <li class="{{ Request::is('ice-cream') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('ice-cream') }}">Ice Cream</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ice Cream</a>
+                        <li class="{{ Request::is('sushi') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('sushi') }}">Sushi</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sushi</a>
+                        <li class="{{ Request::is('pizza') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('pizza') }}">Pizza</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pizza</a>
+                        <li class="{{ Request::is('sandwich') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('sandwich') }}">Sandwich</a>
+                        </li>
+                        <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('artikel') }}">Semua Artikel</a>
                         </li>
                         @if (Auth::check())
                         <li class="nav-item">
