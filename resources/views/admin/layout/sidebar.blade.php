@@ -57,7 +57,7 @@
 
     <!-- Nav Item Komentar-->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin.komentar.index') }}">
         <i class="far fa-fw fa-comment-alt"></i>
         <span>Komentar</span></a>
     </li>

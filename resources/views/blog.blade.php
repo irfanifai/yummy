@@ -64,7 +64,7 @@
                             <div class="post-comment-share-area d-flex">
                                 <!-- Post Comments -->
                                 <div class="post-comments">
-                                    <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                    <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments()->count() }}</a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
             <div class="col-12">
                 <div class="pagination-area d-sm-flex mt-15">
                     <nav aria-label="#">
-                        {!! $posts->links('frontend.include._pagination') !!}
+                        {!! $posts->appends(request()->query())->links('frontend.include._pagination') !!}
                     </nav>
                     <div class="page-status">
                         <p>Halaman {{$posts->currentPage() }} dari {{ $posts->total() }} artikel</p>

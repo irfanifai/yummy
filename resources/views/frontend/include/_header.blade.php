@@ -18,8 +18,8 @@
                         <li class="{{ Request::is('/') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="{{ Request::is('steak') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('steak') }}">Steak</a>
+                        <li class="{{ Request::is('spaghetti') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ url('spaghetti') }}">Spaghetti</a>
                         </li>
                         <li class="{{ Request::is('pasta') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url('pasta') }}">Pasta</a>

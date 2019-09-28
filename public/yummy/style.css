@@ -1287,7 +1287,7 @@ li {
     border-radius: 30px !important;
 }
 
-.single_blog_area ul li {
+.single-post ul li {
     position: relative;
     z-index: 1;
     color: #51545f;
@@ -1295,7 +1295,7 @@ li {
     padding-left: 30px;
 }
 
-.single_blog_area ul li:before {
+.single-post ul li:before {
     position: absolute;
     content: '\f111';
     left: 0;
@@ -1394,8 +1394,8 @@ li {
 }
 
 .comment-wrapper .comment-author {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 60px;
 }
@@ -1417,13 +1417,13 @@ li {
 }
 
 .comment-wrapper .comment-date {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .comment-wrapper .comment-content h5 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 5px 0;
 }
 
@@ -1432,7 +1432,7 @@ li {
     height: 30px;
     border: 1px solid #ebebeb;
     line-height: 30px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
     color: #232d37;
     display: inline-block;

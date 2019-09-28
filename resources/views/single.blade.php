@@ -41,6 +41,14 @@
 
                     <!-- Single Post -->
                     <div class="col-10 col-sm-11">
+
+                        @if (session('status'))
+                        <div class="alert alert-info alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ session('status') }}</strong>
+                        </div>
+                        @endif
+
                         <div class="single-post">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
@@ -64,7 +72,7 @@
                                     <div class="post-comment-share-area d-flex">
                                         <!-- Post Comments -->
                                         <div class="post-comments mr-2">
-                                            <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                            <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments()->count() }}</a>
                                         </div>
                                         <!-- Post Share -->
                                         <div class="post-share">
@@ -91,12 +99,12 @@
 
                             <div class="related-post-slider owl-carousel">
 
-                                @foreach ($relatedpost as $post)
+                                @foreach ($relatedpost as $related)
                                 <!-- Single Related Post-->
                                 <div class="single-post">
                                     <!-- Post Thumb -->
                                     <div class="post-thumb">
-                                        <img src="{{ asset($post->featured) }}" alt="" height="150px;">
+                                        <img src="{{ asset($related->featured) }}" alt="" height="150px;">
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
@@ -104,17 +112,17 @@
                                             <div class="post-author-date-area d-flex">
                                                 <!-- Post Author -->
                                                 <div class="post-author">
-                                                    <a class="text-muted">{{ $post->user->name }}</a>
+                                                    <a class="text-muted">{{ $related->user->name }}</a>
                                                 </div>
                                                 <!-- Post Date -->
                                                 <div class="post-date">
-                                                    @php $date = $post->created_at; $date = date("d-m-Y", strtotime($date));@endphp
+                                                    @php $date = $related->created_at; $date = date("d-m-Y", strtotime($date));@endphp
                                                     <a class="text-muted">{{ $date }}</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
-                                            <h6>{{ $post->title }}</h6>
+                                        <a href="{{ url( $related->categorie->slug . '/' . $related->slug) }}">
+                                            <h6>{{ $related->title }}</h6>
                                         </a>
                                     </div>
                                 </div>
@@ -125,86 +133,80 @@
 
                         <!-- Comment Area Start -->
                         <div class="comment_area section_padding_50 clearfix">
-                            <h4 class="mb-30">2 Comments</h4>
+                            <h4 class="mb-30">{{ $post->comments()->count() }} Komentar</h4>
 
                             <ol>
                                 <!-- Single Comment Area -->
+                                @foreach ($comments  as $comment)
                                 <li class="single_comment_area">
                                     <div class="comment-wrapper d-flex">
                                         <!-- Comment Meta -->
                                         <div class="comment-author">
-                                            <img src="img/blog-img/17.jpg" alt="">
+                                            @if ($comment->user()->first()->avatar)
+                                                <img src="{{ asset($comment->user()->first()->avatar) }}" alt="Profile" title="Profile">
+                                            @else
+                                                <img src="{{ asset('images/user.svg') }}" alt="Profile" title="Profile">
+                                            @endif
                                         </div>
                                         <!-- Comment Content -->
                                         <div class="comment-content">
-                                            <span class="comment-date text-muted">27 Aug 2018</span>
-                                            <h5>Brandon Kelley</h5>
-                                            <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                            <a href="#">Like</a>
-                                            <a class="active" href="#">Reply</a>
-                                        </div>
-                                    </div>
-                                    <ol class="children">
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="img/blog-img/18.jpg" alt="">
-                                                </div>
-                                                <!-- Comment Content -->
-                                                <div class="comment-content">
-                                                    <span class="comment-date text-muted">27 Aug 2018</span>
-                                                    <h5>Brandon Kelley</h5>
-                                                    <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                    <a href="#">Like</a>
-                                                    <a class="active" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="single_comment_area">
-                                    <div class="comment-wrapper d-flex">
-                                        <!-- Comment Meta -->
-                                        <div class="comment-author">
-                                            <img src="img/blog-img/19.jpg" alt="">
-                                        </div>
-                                        <!-- Comment Content -->
-                                        <div class="comment-content">
-                                            <span class="comment-date text-muted">27 Aug 2018</span>
-                                            <h5>Brandon Kelley</h5>
-                                            <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                            <a href="#">Like</a>
-                                            <a class="active" href="#">Reply</a>
+                                            <span class="comment-date text-muted">{{ date('j F Y', strtotime($comment->created_at)) }}</span>
+                                            <h5>{{ $comment->name }}</h5>
+                                            <p>{{ $comment->body }}</p>
                                         </div>
                                     </div>
                                 </li>
+
+                                @endforeach
+
+                                <div class="pagination-area d-sm-flex mt-15">
+                                    {{ $comments->links('frontend.include._pagination') }}
+                                </div>
+
                             </ol>
                         </div>
 
+                        @if (Auth::check())
                         <!-- Leave A Comment -->
                         <div class="leave-comment-area section_padding_50 clearfix">
                             <div class="comment-form">
-                                <h4 class="mb-30">Leave A Comment</h4>
+                                <h4 class="mb-30">Tulis Komentar</h4>
 
                                 <!-- Comment Form -->
-                                <form action="#" method="post">
+                                {!! Form::open(['route' => ['post.comment', $post->categorie->slug, $post->slug], 'method' => 'POST']) !!}
+                                @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-name" placeholder="Name">
+                                        {!! Form::text('name', null, ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+                                        @if ($errors->has('name'))
+                                        <span class="invalid-feedback" style="margin-top: 10px !important;">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                                        {!! Form::email('email', null, ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Email Address']) !!}
+                                        @if ($errors->has('email'))
+                                        <span class="invalid-feedback" style="margin-top: 10px !important;">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-website" placeholder="Website">
+                                        {!! Form::textarea('body', null, ['id' => 'textarea', 'class' => $errors->has('body') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Isi Komentar']) !!}
+                                        @if ($errors->has('body'))
+                                        <span class="invalid-feedback" style="margin-top: 10px !important;">
+                                            <strong>{{ $errors->first('body') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn contact-btn">Post Comment</button>
-                                </form>
+                                    <button type="submit" class="btn contact-btn">Kirim Komentar</button>
+                            {{ Form::close() }}
                             </div>
                         </div>
+                        @else
+                            <p class="mt-2">Masuk untuk tulis komentar <a href="{{ route('login') }}">Masuk</a></p>
+                        @endif
+
                     </div>
 
                 </div>
@@ -262,6 +264,7 @@
 
                 </div>
             </div>
+
         </div>
     </div>
 </section>

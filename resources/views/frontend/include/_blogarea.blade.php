@@ -31,14 +31,15 @@
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments()->count() }}</a>
                                     </div>
                                 </div>
                             </div>
                             <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h2 class="post-headline">{{ $post->title }}</h2>
                             </a>
-                            <p>{!! substr($post->body, 0, 175) !!}...</p>
+                            @php $string = $post->body @endphp
+                            <p>{!! str_limit($string, $limit = 170, $end = '.') !!}</p>
                             <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}" class="read-more">Lanjutkan Membaca...</a>
                         </div>
                     </div>
@@ -73,7 +74,7 @@
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments()->count() }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,14 +116,15 @@
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ $post->comments()->count() }}</a>
                                     </div>
                                 </div>
                             </div>
                             <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}">
                                 <h4 class="post-headline">{{ $post->title }}</h4>
                             </a>
-                            <p>{!! substr($post->body, 0, 175) !!}...</p>
+                            @php $string = $post->body @endphp
+                            <p>{!! str_limit($string, $limit = 170, $end = '.') !!}</p>
                             <a href="{{ url( $post->categorie->slug . '/' . $post->slug) }}" class="read-more">Lanjutkan Membaca...</a>
                         </div>
                     </div>

@@ -21,8 +21,8 @@
                 </div>
                 <!-- Search Form -->
                 <div class="search-hidden-form">
-                    <form action="#" method="get">
-                        <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
+                    <form action="{{ url('/search') }}" method="get">
+                        <input type="search" name="q" id="search-anything" placeholder="Search Anything...">
                         <input type="submit" value="" class="d-none">
                         <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                     </form>

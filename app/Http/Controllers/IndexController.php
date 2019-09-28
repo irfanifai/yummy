@@ -6,6 +6,7 @@ use App\Post;
 use App\About;
 use App\Setting;
 use App\Message;
+use App\Comment;
 use App\Categorie;
 use Illuminate\Http\Request;
 
@@ -55,8 +56,27 @@ class IndexController extends Controller
         }
 
         $setting = $this->setting();
-        $posts = Post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
-        return view('blog', compact('setting', 'posts', 'photos', 'posts'));
+        $posts = Post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(12);
+        return view('blog', compact('setting', 'photos', 'posts'));
+    }
+
+    public function blogSearch(Request $request)
+    {
+        return $request->all();
+    //     $client = new Client();
+
+    //     $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
+
+    //     $result = json_decode($endpoint->getBody()->getContents(), true);
+
+    //     $photos = [];
+    //     foreach ($result['data'] as $photo) {
+    //         $photos[] = $photo['images']['thumbnail']['url'];
+    //     }
+
+    //     $setting = $this->setting();
+    //     $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('created_at', 'DESC')->paginate(4);
+    //     return view('blog', compact('photos', 'posts', 'setting'));
     }
 
     public function getPostByCategorySlug($categorie)
@@ -74,7 +94,7 @@ class IndexController extends Controller
 
         $setting = $this->setting();
         $categorie = Categorie::where('slug', $categorie)->first();
-        $posts = $categorie->posts()->get();
+        $posts = $categorie->posts()->where('status', 'PUBLISH')->get();
         $fourpost = $categorie->posts()->orderBy('id', 'DESC')->limit(4)->get();
         $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'DESC')->limit(8)->get();
         return view('allPost', compact('setting', 'photos', 'posts', 'categorie', 'fourpost', 'newpost'));
@@ -97,7 +117,8 @@ class IndexController extends Controller
         $newpost = Post::where('status', 'PUBLISH')->orderBy('id', 'DESC')->limit(8)->get();
         $post = Post::where('slug', $slug)->first();
         $relatedpost = Post::where('status', 'PUBLISH')->inRandomOrder()->limit(9)->get();
-        return view('single', compact('setting',  'newpost', 'post', 'relatedpost', 'photos'));
+        $comments = $post->comments()->paginate(5);
+        return view('single', compact('setting',  'newpost', 'post', 'relatedpost', 'photos', 'comments'));
     }
 
     public function categories()
@@ -118,6 +139,23 @@ class IndexController extends Controller
         return view('categories', compact('postcategorie', 'setting', 'photos'));
     }
 
+    public function comment(Request $request, $categorie, $slug)
+    {
+        $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'body' => 'required|min:5|max:100'
+        ]);
+
+
+        $post = Post::where('slug', $slug)->first();
+
+        $request['post_id'] = $post->id;
+        $request['user_id'] = \Auth::user()->id;
+        Comment::create($request->all());
+
+        return redirect()->back()->with('status', 'Terima Kasih, Anda telah berkomentar');
+    }
 
     public function about()
     {

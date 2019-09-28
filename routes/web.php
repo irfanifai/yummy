@@ -71,6 +71,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('pengaturan', 'SettingsController@index')->name('pengaturan.index');
     Route::post('pengaturan', 'SettingsController@store')->name('pengaturan.store');
 
+    // Komentar
+    Route::get('/komentar', 'CommentsController@index')->name('komentar.index');
+    Route::get('/komentar/{id}', 'CommentsController@show')->name('komentar.show');
+    Route::delete('/komentar/{id}', 'CommentsController@destroy')->name('komentar.destroy');
 
 });
 
@@ -93,3 +97,6 @@ Route::post('kontak-kami', 'IndexController@contactStore')->name('kontak-kami.st
 // Route Model Binding Kategori/Slug
 Route::get('/{categorie}', 'IndexController@getPostByCategorySlug');
 Route::get('/{categorie}/{slug}', 'IndexController@single');
+
+Route::post('/{categorie}/{slug}/komentar', 'IndexController@comment')->name('post.comment');
+Route::get('/search', 'IndexController@blogSearch');
