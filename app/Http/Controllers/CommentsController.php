@@ -9,12 +9,12 @@ class CommentsController extends Controller
 {
     public function index(Request $request)
     {
-        $comments = Comment::paginate(10);
+        $comments = Comment::paginate(30);
 
         $filterKeyword = $request->get('keyword');
 
         if ($filterKeyword) {
-            $comments = Comment::where("name", "LIKE", "%$filterKeyword%")->paginate(10);
+            $comments = Comment::where("name", "LIKE", "%$filterKeyword%")->paginate(30);
         }
 
         return view('admin.comments.index', compact('comments'));

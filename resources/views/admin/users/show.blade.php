@@ -26,7 +26,7 @@
                         @if($user->avatar)
                             <td><img src="{{ asset($user->avatar) }}" alt="Profile" height="250" width="250"></td>
                         @else
-                            N/A
+                            <td><img src="{{ asset('images/tanpa-image.png') }}" alt="Profile" height="250" width="250"></td>
                         @endif
                         </tr>
                 </table>

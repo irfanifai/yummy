@@ -22,6 +22,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name', 'email', 'password',
     ];
 
+    // Date Format
+    protected $dates = [
+        'created_at'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

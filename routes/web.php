@@ -40,7 +40,7 @@ Route::prefix('admin')->group(function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     // Setting Tentang Kami Admin
-    Route::resource('/tentangkami', 'AboutController', ['except' => ['create', 'store', 'destroy']]);
+    Route::resource('/tentang-kami', 'AboutController', ['except' => ['create', 'store', 'destroy']]);
 
     // Pesan Admin
     Route::resource('/pesan', 'MessagesController');
@@ -96,6 +96,9 @@ Route::get('/tentang-kami', 'IndexController@about')->name('tentang-kami');
 // Contact
 Route::get('/kontak-kami', 'IndexController@contact')->name('kontak-kami.index');
 Route::post('/kontak-kami', 'IndexController@contactStore')->name('kontak-kami.store');
+
+// Newsletter
+Route::post('/newsletter', 'IndexController@newsletter')->name('newsletter');
 
 // Search Artikel
 Route::get('/search', 'IndexController@blogSearch');

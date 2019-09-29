@@ -15,28 +15,28 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::paginate(10);
+        $users = User::paginate(20);
 
         $status = $request->get('status');
         if ($status) {
-            $users = User::where('status', strtoupper($status))->paginate(10);
+            $users = User::where('status', strtoupper($status))->paginate(20);
         } else {
-            $users = User::paginate(10);
+            $users = User::paginate(20);
         }
 
         $filterKeyword = $request->get('nameuser');
         if ($filterKeyword) {
-            $users = User::where('name', 'LIKE', "%$filterKeyword%")->paginate(10);
+            $users = User::where('name', 'LIKE', "%$filterKeyword%")->paginate(20);
         }
 
         if ($filterKeyword) {
             if ($status) {
                 $users = User::where('name', 'LIKE', "%$filterKeyword%")
                     ->where('status', strtoupper($status))
-                    ->paginate(10);
+                    ->paginate(20);
             } else {
                 $users = User::where('name', 'LIKE', "%$filterKeyword%")
-                    ->paginate(10);
+                    ->paginate(20);
             }
         }
 
@@ -145,7 +145,7 @@ class UsersController extends Controller
 
     public function trash()
     {
-        $users = User::onlyTrashed()->paginate(10);
+        $users = User::onlyTrashed()->paginate(20);
 
         return view('admin.users.trash', compact('users'));
     }

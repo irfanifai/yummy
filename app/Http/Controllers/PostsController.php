@@ -21,10 +21,10 @@ class PostsController extends Controller
         if ($status) {
             $posts = Post::with(['user', 'categorie'])
                 ->where('status')
-                ->paginate(10);
+                ->paginate(20);
         } else {
             $posts = Post::with(['user', 'categorie'])
-                ->paginate(10);
+                ->paginate(20);
         }
 
         $filterKeyword = $request->get('keyword');
@@ -33,11 +33,11 @@ class PostsController extends Controller
             $posts = Post::with(['user', 'categorie'])
                 ->where('title', "LIKE", "%$keyword%")
                 ->where('status', strtoupper($status))
-                ->paginate(10);
+                ->paginate(20);
         } else {
             $posts = Post::with(['user', 'categorie'])
                 ->where("title", "LIKE", "%$keyword%")
-                ->paginate(10);
+                ->paginate(20);
         }
 
         return view('admin.posts.index', compact('posts'));

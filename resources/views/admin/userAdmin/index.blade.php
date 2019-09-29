@@ -65,16 +65,12 @@
                             @if($user->avatar)
                                 <img src="{{ asset($user->avatar) }}" width="50px">
                             @else
-                                N/A
+                                <img src="{{ asset('images/tanpa-image.png') }}" width="50px">
                             @endif
                         </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        @php
-                        $date = $user->created_at;
-                        $date = date( "d M Y h:i", strtotime($date));
-                        @endphp
-                        <td>{{ $date }}</td>
+                        <td>{{ $user->created_at->format('d M Y h:i') }}</td>
                         <td>
                             @if($user->status == "ACTIVE")
                             <span class="badge badge-success">
@@ -103,7 +99,7 @@
                 <tfoot>
                     <tr>
                         <td colspan=10>
-                            {{$users->appends(Request::all())->links()}}
+                            {{ $users->appends(Request::all())->links() }}
                         </td>
                     </tr>
                 </tfoot>

@@ -166,7 +166,7 @@ class UserAdminsController extends Controller
             ->with('status', 'User Admin berhasil dipindahkan ke trash');
     }
 
-    public function trash()
+    public function trash(Request $request)
     {
         $users = Admin::onlyTrashed()->paginate(10);
 

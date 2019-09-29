@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($about, ['route' => ['admin.tentangkami.update', $about->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::model($about, ['route' => ['admin.tentang-kami.update', $about->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
                 @csrf
                 <div class="form-group">
                     <label for="title">Judul</label>

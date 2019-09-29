@@ -61,7 +61,8 @@
             @foreach($posts as $post)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{!! substr($post->title, 0, 20) !!}...</td>
+                    @php $string = $post->title @endphp
+                    <td>{!! str_limit($string, $limit = 20, $end = '.') !!}</td>
                     <td><img src="{{ asset($post->user->avatar) }}" alt="Foto Profile" width="30" class="rounded-circle mr-1"> {{ $post->user->name }}</td>
                     <td>{{ $post->categorie->name }}</td>
                     <td>
@@ -92,7 +93,7 @@
             <tfoot>
                 <tr>
                     <td colspan=10>
-                        {{$posts->appends(Request::all())->links()}}
+                        {{ $posts->appends(Request::all())->links() }}
                     </td>
                 </tr>
             </tfoot>

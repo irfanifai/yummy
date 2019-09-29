@@ -10,7 +10,7 @@
 
         <div class="card-body">
 
-            <div class="col-4 float-right mb-4">
+            {{-- <div class="col-4 float-right mb-4">
                 <form action="{{ route('admin.artikel.index') }}">
                     <div class="input-group">
                         <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan judul artikel">
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> --}}
 
             <div class=" col-8 float-left mb-4">
                 <ul class="nav nav-pills">

@@ -69,7 +69,7 @@
         <div class="row no-gutters align-items-center">
         <div class="col mr-2">
             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Komentar</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ \App\Comment::count() }}</div>
         </div>
         <div class="col-auto">
             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -145,8 +145,8 @@
                     <div class="article-title">
                         <p style="height: 20px;"><a href="{{ route('admin.artikel.show', ['id' => $post->id]) }}">{{ $post->title }}</a></p>
                     </div>
-                    @php $text = $post->body; $max = 150; $body = substr($text, 0, $max) . '...'; @endphp
-                    <p class="card-text pt-5" style="height: 50px;">{{ strip_tags($body) }}...</p>
+                    @php $text = $post->body; $max = 150; $body = substr($text, 0, $max) . '..'; @endphp
+                    <p class="card-text pt-5" style="height: 50px;">{{ strip_tags($body) }}</p>
                 </div>
                 <div class="article-cta mb-1">
                     <a href="{{ route('admin.artikel.show', ['id' => $post->id]) }}">Baca lebih lajut<i class="fas fa-chevron-right"></i></a>

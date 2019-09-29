@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\About;
+use Newsletter;
 use App\Setting;
 use App\Message;
 use App\Comment;
@@ -176,7 +177,6 @@ class IndexController extends Controller
 
     public function contact(Request $request)
     {
-
         $client = new Client();
 
         $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
@@ -203,6 +203,19 @@ class IndexController extends Controller
         Message::create($request->all());
         return redirect()->route('kontak-kami.index')
             ->with('status', 'Terima Kasih, Pesan berhasil dikirim');
+    }
+
+    public function newsletter(Request $request)
+    {
+        if(!Newsletter::subscribe($request->email))
+        {
+            Newsletter::subscribePending($request->email);
+            return redirect()->back()
+                ->with('status', 'Terima Kasih, Telah Subscribe Website kami');
+        }
+
+        return redirect()->back()
+            ->with('status', 'Mohon Maaf Gagal');
     }
 
 }

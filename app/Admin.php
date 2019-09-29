@@ -43,6 +43,11 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Date Format
+    protected $dates = [
+        'created_at'
+    ];
+
     /**
      * Send the password reset notification.
      *

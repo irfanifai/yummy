@@ -13,7 +13,7 @@
         <div class="col-md-12">
             <ul class="nav nav-pills justify-content-end">
                 <li class="nav-item">
-                    <a href="{{ route('admin.tentangkami.edit', ['id' => $about->id]) }}" class="nav-link">Edit</a>
+                    <a href="{{ route('admin.tentang-kami.edit', ['id' => $about->id]) }}" class="nav-link">Edit</a>
                 </li>
             </ul>
 

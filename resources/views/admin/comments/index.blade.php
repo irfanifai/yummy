@@ -36,7 +36,7 @@
             <tr>
                 <th>#</th>
                 <th>Nama Pengirim</th>
-                <th>Isi Komentar</th>
+                {{-- <th>Isi Komentar</th> --}}
                 <th>Judul Artikel</th>
                 <th>Tanggal Komentar</th>
                 <th>Action</th>
@@ -45,7 +45,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $comment->name }}</td>
-                    <td>@php $string = $comment->body @endphp {!! str_limit($string, $limit = 20, $end = '.') !!}</td>
+                    {{-- <td>@php $string = $comment->body @endphp {!! str_limit($string, $limit = 20, $end = '.') !!}</td> --}}
                     <td>{{ $comment->post->title }}</td>
                     @php
                     $date = $comment->created_at;

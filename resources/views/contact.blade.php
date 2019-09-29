@@ -78,7 +78,7 @@
                         {!! Form::open(['route' => 'kontak-kami.store', 'method' => 'POST']) !!}
                         @csrf
                             <div class="form-group">
-                                {!! Form::text('name', null, ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Nama Lengkap', 'required']) !!}
+                                {!! Form::text('name', null, ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
                                 @if ($errors->has('name'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('name') }}</strong>
@@ -86,7 +86,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                {!! Form::text('email', null, ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Alamat Email', 'required']) !!}
+                                {!! Form::text('email', null, ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Alamat Email']) !!}
                                 @if ($errors->has('email'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -94,7 +94,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                {!! Form::textarea('message', null, ['id' => 'textarea', 'class' => $errors->has('message') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Pesan', 'required']) !!}
+                                {!! Form::textarea('message', null, ['id' => 'textarea', 'class' => $errors->has('message') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'Pesan']) !!}
                                 @if ($errors->has('message'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('message') }}</strong>

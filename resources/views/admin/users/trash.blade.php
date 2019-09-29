@@ -10,7 +10,7 @@
 
         <div class="card-body">
 
-            <div class="col-3 float-right mb-4">
+            {{-- <div class="col-3 float-right mb-4">
                 <form action="#">
                 <div class="input-group">
                     <input type="text" class="form-control" value="{{Request::get('nameuser')}}" name="nameuser" placeholder="cari berdasarkan nama">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 </form>
-            </div>
+            </div> --}}
 
             <div class=" col-md-8 float-left mb-4">
                 <ul class="nav nav-pills">
@@ -53,7 +53,7 @@
                     <th>#</th>
                     <th>Foto</th>
                     <th>Nama</th>
-                    <th>Email</th>
+                    {{-- <th>Email</th> --}}
                     <th>Dibuat</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -69,12 +69,8 @@
                             @endif
                         </td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        @php
-                        $date = $user->created_at;
-                        $date = date( "d M Y h:i", strtotime($date));
-                        @endphp
-                        <td>{{ $date }}</td>
+                        {{-- <td>{{ $user->email }}</td> --}}
+                        <td>{{ $user->created_at->format('d M Y h:i') }}</td>
                         <td>
                             @if($user->status == "ACTIVE")
                             <span class="badge badge-success">

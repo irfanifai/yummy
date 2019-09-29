@@ -15,7 +15,7 @@
                     @if($user->avatar)
                         <img class="img-thumbnail" src="{{ asset($user->avatar) }}" width="320px" height="280px">
                     @else
-                        <p class="text-center mx-auto">N/A</p>
+                        <img class="img-thumbnail" src="{{ asset('images/tanpa-image.png') }}" width="320px" height="280px">
                     @endif
                 </div>
                 <div class="form-group col-md-8 col-8 mt-4">

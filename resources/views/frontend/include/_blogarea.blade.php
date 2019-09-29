@@ -208,10 +208,19 @@
                     <div class="widget-title text-center">
                         <h6>Newsletter</h6>
                     </div>
+
+                    @if (session('status'))
+                    <div class="alert alert-info alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ session('status') }}</strong>
+                    </div>
+                    @endif
+
                     <p>Berlangganan Newsletter untuk mendapatkan berbagai macam info, artikel, acara, dan promo terbaru.</p>
                     <div class="newsletter-form">
-                        <form action="#" method="post">
-                            <input type="email" name="newsletter-email" id="email" placeholder="Masukkan Alamat Email">
+                        <form action="{{ url('/newsletter')}}" method="post">
+                        @csrf
+                            <input type="email" name="email" id="email" placeholder="Masukkan Alamat Email">
                             <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                         </form>
                     </div>

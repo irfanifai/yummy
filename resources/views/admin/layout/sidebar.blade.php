@@ -64,7 +64,7 @@
 
     <!-- Nav Tentang Kami-->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.tentangkami.index') }}">
+        <a class="nav-link" href="{{ route('admin.tentang-kami.index') }}">
         <i class="fas fa-fw fa-info"></i>
         <span>Tentang Kami</span></a>
     </li>

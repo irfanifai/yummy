@@ -10,16 +10,16 @@
 
         <div class="card-body">
 
-            <div class="col-3 float-right mb-4">
+            {{-- <div class="col-3 float-right mb-4">
                 <form action="#">
                 <div class="input-group">
-                    <input type="text" class="form-control" value="{{Request::get('keyword')}}" name="keyword" placeholder="cari berdasarkan nama">
+                    <input type="text" class="form-control" value="{{Request::get('trash')}}" name="keyword" placeholder="cari berdasarkan nama">
                     <div class="input-group-append">
                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
                 </form>
-            </div>
+            </div> --}}
 
             <div class=" col-md-8 float-left mb-4">
                 <ul class="nav nav-pills">
@@ -70,11 +70,7 @@
                         </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        @php
-                        $date = $user->created_at;
-                        $date = date( "d M Y h:i", strtotime($date));
-                        @endphp
-                        <td>{{ $date }}</td>
+                        <td>{{ $user->created_at->format('d M Y h:i') }}</td>
                         <td>
                             @if($user->status == "ACTIVE")
                             <span class="badge badge-success">
