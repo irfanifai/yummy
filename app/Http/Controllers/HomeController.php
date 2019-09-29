@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use App\Setting;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -43,14 +45,43 @@ class HomeController extends Controller
         }
 
         $setting = $this->setting();
-
-        return view('user/home', compact('setting', 'photos'));
+        $user = Auth::user();
+        return view('user.home', compact('setting', 'photos', 'user'));
     }
 
-    // public function editprofile($id)
-    // {
-    //     $user = User::findOrFail($id);
+    public function editprofile($id)
+    {
+        $user = User::findOrFail($id);
 
-    //     return view('user.edit', compact('user'));
-    // }
+        return view('user.edit', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request);
+        // return $request->all();
+        $user = \Auth::user();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $password = $request->get('password');
+        $user->password = \Hash::make($password);
+        // $user->name = \Request::input('name');
+        // $user->email = \Request::input('email');
+
+        if ($request->file('avatar')) {
+            if ($user->avatar && file_exists(storage_path('app/public/' . $user->avatar))) {
+                \Storage::delete('public/' . $user->avatar);
+            }
+            $file = $request->file('avatar');
+            $name = $file->getClientOriginalName();
+            Storage::putFileAs('public/user', $file, $name);
+
+            $user->avatar = 'storage/user/' . $name;
+        }
+
+        $user->save();
+
+        return redirect()->route('home')
+            ->with('status', 'Data berhasil diperbarui');
+    }
 }

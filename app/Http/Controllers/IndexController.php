@@ -60,25 +60,6 @@ class IndexController extends Controller
         return view('blog', compact('setting', 'photos', 'posts'));
     }
 
-    public function blogSearch(Request $request)
-    {
-        return $request->all();
-    //     $client = new Client();
-
-    //     $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
-
-    //     $result = json_decode($endpoint->getBody()->getContents(), true);
-
-    //     $photos = [];
-    //     foreach ($result['data'] as $photo) {
-    //         $photos[] = $photo['images']['thumbnail']['url'];
-    //     }
-
-    //     $setting = $this->setting();
-    //     $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('created_at', 'DESC')->paginate(4);
-    //     return view('blog', compact('photos', 'posts', 'setting'));
-    }
-
     public function getPostByCategorySlug($categorie)
     {
         $client = new Client();
@@ -137,6 +118,24 @@ class IndexController extends Controller
         $setting = $this->setting();
         $postcategorie = Categorie::paginate(9);
         return view('categories', compact('postcategorie', 'setting', 'photos'));
+    }
+
+    public function blogSearch(Request $request)
+    {
+        $client = new Client();
+
+        $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
+
+        $result = json_decode($endpoint->getBody()->getContents(), true);
+
+        $photos = [];
+        foreach ($result['data'] as $photo) {
+            $photos[] = $photo['images']['thumbnail']['url'];
+        }
+
+        $setting = $this->setting();
+        $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('created_at', 'DESC')->paginate(4);
+        return view('blog', compact('photos', 'posts', 'setting'));
     }
 
     public function comment(Request $request, $categorie, $slug)

@@ -8,7 +8,7 @@
                 <a href="{{ $setting->link_instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="{{ $setting->link_youtube }}"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                 @if (Auth::check())
-                <p class="ml-5 pt-3">Hi, {{ Auth::user()->name }}</p>
+                    <p class="ml-5 pt-3">Hi, {{ Auth::user()->name }}</p>
                 @endif
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <!-- Search Form -->
                 <div class="search-hidden-form">
                     <form action="{{ url('/search') }}" method="get">
-                        <input type="search" name="q" id="search-anything" placeholder="Search Anything...">
+                        <input type="search" name="q" id="search-anything" placeholder="Masukkan Judul Artikel disini">
                         <input type="submit" value="" class="d-none">
                         <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                     </form>

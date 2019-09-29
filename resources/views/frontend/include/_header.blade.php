@@ -39,18 +39,20 @@
                         <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url('artikel') }}">Semua Artikel</a>
                         </li>
-                        @if (Auth::check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sing out</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Akun</a>
+                            <div class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                @if (Auth::check())
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sing out</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a class="dropdown-item" href="{{ route('me') }}">Profile</a>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('login') }}">Masuk</a>
+                                @endif
+                            </div>
                         </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Masuk</a>
-                        </li>
-                        @endif
                     </ul>
                 </div>
             </nav>
