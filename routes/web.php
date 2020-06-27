@@ -14,7 +14,7 @@
 // Login User
 Auth::routes(['verify' => true]);
 
-Route::get('/me', 'HomeController@index')->name('me')->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::put('/user/{id}', 'HomeController@editprofile')->name('user.edit');
 Route::post('/user', 'HomeController@store')->name('user.store');
@@ -53,9 +53,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('artikel', 'PostsController');
 
     // User Admin
-    Route::get('/user-admin/trash', 'userAdminsController@trash')->name('user-admin.trash');
-    Route::get('/user-admin/{id}/restore', 'userAdminsController@restore')->name('user-admin.restore');
-    Route::delete('/user-admin/{id}/delete-permanent', 'userAdminsController@deletePermanent')->name('user-admin.delete-permanent');
+    Route::get('/user-admin/trash', 'UserAdminsController@trash')->name('user-admin.trash');
+    Route::get('/user-admin/{id}/restore', 'UserAdminsController@restore')->name('user-admin.restore');
+    Route::delete('/user-admin/{id}/delete-permanent', 'UserAdminsController@deletePermanent')->name('user-admin.delete-permanent');
     Route::resource('user-admin', 'UserAdminsController');
 
     // User Web

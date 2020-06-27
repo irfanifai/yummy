@@ -135,7 +135,7 @@ class IndexController extends Controller
         }
 
         $setting = $this->setting();
-        $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('created_at', 'DESC')->paginate(4);
+        $posts = Post::search($request->get('q'))->where('status', 1)->orderBy('created_at', 'DESC')->paginate(12);
         return view('blog', compact('photos', 'posts', 'setting'));
     }
 
@@ -207,15 +207,19 @@ class IndexController extends Controller
 
     public function newsletter(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
         if(!Newsletter::subscribe($request->email))
         {
             Newsletter::subscribePending($request->email);
             return redirect()->back()
-                ->with('status', 'Terima Kasih, Telah Subscribe Website kami');
+                ->with('status', 'Mohon Maaf Gagal');
         }
 
         return redirect()->back()
-            ->with('status', 'Mohon Maaf Gagal');
+            ->with('status', 'Terima Kasih, Telah Subscribe Website kami');
     }
 
 }

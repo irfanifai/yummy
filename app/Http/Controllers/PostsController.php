@@ -197,11 +197,11 @@ class PostsController extends Controller
         if ($post->trashed()) {
             $post->restore();
         } else {
-            return redirect()->route('artikel.trash')
+            return redirect()->route('admin.artikel.trash')
                 ->with('status', 'Tidak dapat menghapus artikel aktif secara permanen');
         }
 
-        return redirect()->route('artikel.trash')
+        return redirect()->route('admin.artikel.trash')
             ->with('status', 'Artikel berhasil di restore');
     }
 
@@ -210,12 +210,12 @@ class PostsController extends Controller
         $post = Post::withTrashed()->findOrFail($id);
 
         if (!$post->trashed()) {
-            return redirect()->route('kategori.index')
+            return redirect()->route('admin.kategori.index')
                 ->with('status', 'Artikel tidak berada di trash');
         } else {
             $post->forceDelete();
 
-            return redirect()->route('kategori.index')
+            return redirect()->route('admin.kategori.index')
                 ->with('status', 'Artikel dihapus secara permanen');
         }
     }

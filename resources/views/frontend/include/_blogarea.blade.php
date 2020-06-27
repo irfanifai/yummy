@@ -221,6 +221,11 @@
                         <form action="{{ url('/newsletter')}}" method="post">
                         @csrf
                             <input type="email" name="email" id="email" placeholder="Masukkan Alamat Email">
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
                             <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                         </form>
                     </div>

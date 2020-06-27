@@ -31,30 +31,30 @@ class SocialiteController extends Controller
         return redirect('/home');
     }
 
-    public function findOrCreateUser($socialUser, $provider)
-    {
-        $socialAccount = SocialAccount::where('provider_id', $socialUser->getId())
-            ->where('provider_name', $provider)
-            ->first();
+    // public function findOrCreateUser($socialUser, $provider)
+    // {
+    //     $socialAccount = SocialAccount::where('provider_id', $socialUser->getId())
+    //         ->where('provider_name', $provider)
+    //         ->first();
 
-        if ($socialAccount) {
-            return $socialAccount->user;
-        } else {
-            $user = User::where('email', $socialUser->getEmail())->first();
+    //     if ($socialAccount) {
+    //         return $socialAccount->user;
+    //     } else {
+    //         $user = User::where('email', $socialUser->getEmail())->first();
 
-            if (!$user) {
-                $user = User::create([
-                    'name' => $socialUser->getName(),
-                    'email' => $socialUser->getEmail()
-                ]);
-            }
+    //         if (!$user) {
+    //             $user = User::create([
+    //                 'name' => $socialUser->getName(),
+    //                 'email' => $socialUser->getEmail()
+    //             ]);
+    //         }
 
-            $user->socialAccounts()->create([
-                'provider_id' => $socialUser->getId(),
-                'provider_name' => $provider
-            ]);
+    //         $user->socialAccounts()->create([
+    //             'provider_id' => $socialUser->getId(),
+    //             'provider_name' => $provider
+    //         ]);
 
-            return $user;
-        }
-    }
+    //         return $user;
+    //     }
+    // }
 }
