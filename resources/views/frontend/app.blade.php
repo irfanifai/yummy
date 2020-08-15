@@ -58,9 +58,9 @@
     <!--/blog-->
 
     <!-- ****** Instagram Area Start ****** -->
-    <div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">
+    {{-- <div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">
         @include('frontend.include._instagramarea')
-    </div>
+    </div> --}}
     <!-- ****** Our Creative Portfolio Area End ****** -->
 
     <!-- ****** Footer Social Icon Area Start ****** -->

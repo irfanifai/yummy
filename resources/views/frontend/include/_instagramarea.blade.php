@@ -1,5 +1,5 @@
 <!-- Instagram Item -->
-@foreach ($photos as $photo)
+{{-- @foreach ($photos as $photo)
 <div class="instagram_gallery_item">
     <!-- Instagram Thumb -->
     <img src="{{ $photo }}" alt="">
@@ -14,4 +14,4 @@
         </div>
     </div>
 </div>
-@endforeach
+@endforeach --}}

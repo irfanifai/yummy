@@ -26,6 +26,22 @@ class HomeController extends Controller
         return Setting::first();
     }
 
+    protected function apiInstagram()
+    {
+        // $client = new Client();
+
+        // $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
+
+        // $result = json_decode($endpoint->getBody()->getContents(), true);
+
+        // $photos = [];
+        // foreach ($result['data'] as $photo) {
+        //     $photos[] = $photo['images']['thumbnail']['url'];
+        // }
+
+        // $this->apiInstagram();
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -33,20 +49,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $client = new Client();
-
-        $endpoint = $client->request('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=1627387810.3ae9b31.4c459b0d51644c2281adcc0cfb53a851&count=12');
-
-        $result = json_decode($endpoint->getBody()->getContents(), true);
-
-        $photos = [];
-        foreach ($result['data'] as $photo) {
-            $photos[] = $photo['images']['thumbnail']['url'];
-        }
-
         $setting = $this->setting();
         $user = Auth::user();
-        return view('user.home', compact('setting', 'photos', 'user'));
+        return view('user.home', compact('setting', 'user'));
     }
 
     public function editprofile($id)
